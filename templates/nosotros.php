@@ -2,14 +2,14 @@
 
 /** Template Name: Nosotros */ ?>
 <?php get_header() ?>
-<section class="section parallax-container context-dark" data-parallax-img="images/parallax-1.jpg">
+<section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean007.jpg">
   <div class="parallax-content parallax-header">
     <div class="parallax-header__inner context-dark text-center">
       <div class="parallax-header__content">
         <div class="container">
           <div class="row justify-content-sm-center">
             <div class="col-md-10 col-xl-8">
-              <h2 class="heading-decorated">About</h2>
+              <h2 class="heading-decorated">Sobre nosotros</h2>
             </div>
           </div>
         </div>
@@ -24,61 +24,45 @@
   <div class="container">
     <div class="row justify-content-lg-center">
       <div class="col-lg-10 col-xl-8">
-        <h4 class="heading-decorated">Our Services</h4>
-        <p>Our company offers flexible & reliable website templates as well as extensive customer support so you
-          don’t have to worry about hiring an expensive web design company. We build all types of web templates and
-          all of them can be used as a basis for your website.</p>
+        <h4 class="heading-decorated">Nuestros servicios</h4>
+        <p>Seven 7 evoluciona de forma paralela a su cliente, siempre atento a las nuevas tecnologías, los movimientos sociales y las últimas tendencias artísticas o musicales. Todo ello se ve reflejado ya no sólo en sus diseños, sino también en las tiendas. Inspirada en la mítica ciudad californiana de Palm Springs, la renovación de la oferta es constante.</p>
       </div>
     </div>
     <div class="row row-50">
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-3">
         <!-- Blurb circle-->
         <article class="blurb blurb-circle blurb-circle_centered">
           <div class="blurb-circle__icon"><span class="icon linear-icon-feather"></span></div>
-          <p class="blurb__title">Clean and Crispy Design</p>
+          <p class="blurb__title">DISEÑO Y CONFECCION</p>
           <p>theFuture is crafted by top industry leaders with love, care and customer needs in mind. </p>
         </article>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-3">
         <!-- Blurb circle-->
         <article class="blurb blurb-circle blurb-circle_centered">
           <div class="blurb-circle__icon"><span class="icon linear-icon-menu3"></span></div>
-          <p class="blurb__title">Novi Builder</p>
+          <p class="blurb__title">DISTRIBUCIÓN</p>
           <p>Use our Novi Builder to customize and update your website within seconds.</p>
         </article>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-3">
         <!-- Blurb circle-->
         <article class="blurb blurb-circle blurb-circle_centered">
           <div class="blurb-circle__icon"><span class="icon linear-icon-bag2"></span></div>
-          <p class="blurb__title">Advanced UI Toolkit</p>
+          <p class="blurb__title">VENTA MINORISTA</p>
           <p>theFuture comes with a powerful and flexible extended toolkit in addition to basic Bootstrap.</p>
         </article>
       </div>
-      <div class="col-md-6 col-lg-4">
+      <div class="col-md-6 col-lg-3">
         <!-- Blurb circle-->
         <article class="blurb blurb-circle blurb-circle_centered">
           <div class="blurb-circle__icon"><span class="icon linear-icon-rocket"></span></div>
-          <p class="blurb__title">Built For Speed</p>
+          <p class="blurb__title">VENTA AL POR MAYOR</p>
           <p>Our template was built for speed. Get the best results at GTmetrix and Google PageSpeed.</p>
         </article>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-circle blurb-circle_centered">
-          <div class="blurb-circle__icon"><span class="icon linear-icon-equalizer"></span></div>
-          <p class="blurb__title">Flexible and Multipurpose</p>
-          <p>theFuture allows creating various websites for complex and scalable projects.</p>
-        </article>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-circle blurb-circle_centered">
-          <div class="blurb-circle__icon"><span class="icon linear-icon-file-search"></span></div>
-          <p class="blurb__title">SEO Friendly</p>
-          <p>Valid code and performance optimized framework make SEO easy and hassle free.</p>
-        </article>
-      </div>
+      
+      
     </div>
   </div>
 </section>
@@ -89,11 +73,10 @@
   <div class="section-lg">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h4 class="heading-decorated">About us</h4>
-          <p>theFuture boasts clean and crispy design, bulletproof layout consistency and intuitive navigation. The
-            template was created by top industry leaders in web design and user experience. Improve your audience
-            engagement and loyalty with simple and user friendly tools offered by our template.</p>
+        <div class="col-md-8 col-lg-7">
+          <h4 class="heading-decorated">Nuestro talento</h4>
+          <p>Todas las prendas son producidas bajo rigurosos controles de calidad, las mejores materias primas y tecnología de punta. Dentro de nuestros procesos, hemos desarrollado una sinergia entre creatividad, diseño y calidad que hace que nuestro producto final llegue a manos del cliente con un valor agregado especial.</p>
+          
           <div class="row row-30">
             <div class="col-xl-6">
               <!-- Blurb minimal-->
@@ -103,8 +86,8 @@
                     <div class="blurb-minimal__icon"><span class="icon linear-icon-menu3"></span></div>
                   </div>
                   <div class="unit-body">
-                    <p class="blurb__title heading-6"><a href="single-service.html">Award-winning designs</a></p>
-                    <p>We have received numerous awards for our designs, concepts, and ideas.</p>
+                    <p class="blurb__title heading-6"><a href="single-service.html">Calidad de diseño</a></p>
+                    <p>Hemos recibido numerosos premios por nuestros diseños y conceptos</p>
                   </div>
                 </div>
               </article>
@@ -117,19 +100,20 @@
                     <div class="blurb-minimal__icon"><span class="icon linear-icon-users2"></span></div>
                   </div>
                   <div class="unit-body">
-                    <p class="blurb__title heading-6"><a href="single-service.html">Expert team</a></p>
-                    <p>We are a team of dedicated web design and development professionals.</p>
+                    <p class="blurb__title heading-6"><a href="single-service.html">Equipo profesional</a></p>
+                    <p>Somos un equipo de profesionales dedicados al diseño de moda.</p>
                   </div>
                 </div>
               </article>
             </div>
           </div>
           <div class="row justify-content-md-center">
+           
             <div class="col-md-12">
               <!-- Linear progress bar-->
               <div class="progress-linear progress-linear-modern">
                 <div class="progress-header">
-                  <p>Innovative Technologies</p><span class="progress-value">49</span>
+                  <p>Diseños Vanguardistas</p><span class="progress-value">49</span>
                 </div>
                 <div class="progress-bar-linear-wrap">
                   <div class="progress-bar-linear"></div>
@@ -138,7 +122,7 @@
               <!-- Linear progress bar-->
               <div class="progress-linear progress-linear-modern">
                 <div class="progress-header">
-                  <p>Flexible and Multipurpose</p><span class="progress-value">29</span>
+                  <p>Confort y duravilidad</p><span class="progress-value">29</span>
                 </div>
                 <div class="progress-bar-linear-wrap">
                   <div class="progress-bar-linear"></div>
@@ -147,85 +131,29 @@
               <!-- Linear progress bar-->
               <div class="progress-linear progress-linear-modern">
                 <div class="progress-header">
-                  <p>Made for People</p><span class="progress-value">86</span>
+                  <p>FLexibilidad tallas</p><span class="progress-value">86</span>
                 </div>
                 <div class="progress-bar-linear-wrap">
                   <div class="progress-bar-linear"></div>
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
+        <div class="col-md-7 col-lg-5">
+              <figure class="button-shadow"><img src="<?php echo get_template_directory_uri() ?>/images/bg-image-1.jpg" alt="" width="555" height="800">
+              </figure>
+            </div>
       </div>
     </div>
   </div>
-  <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-right bg-image" style="background-image: url(images/bg-image-1.jpg)"></div>
 </section>
 <!-- services-->
-<section class="section-md bg-default">
-  <div class="bg-decor d-flex align-items-center justify-content-end" data-parallax-scroll="{&quot;x&quot;: -100, &quot;y&quot;: -30, &quot;smoothness&quot;: 30}"><img src="images/bg-decor-9.png" alt="" />
-  </div>
-  <div class="container">
-    <div class="row justify-content-md-center justify-content-lg-between row-50 align-items-center">
-      <div class="col-md-8 col-lg-6">
-        <div id="accordion" role="tablist">
-          <!-- Bootstrap card-->
-          <div class="card card-custom">
-            <div class="card-custom-heading" id="accordionHeading1" role="tab">
-              <h5 class="card-custom-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#accordionCollapse1" aria-controls="accordionCollapse1">What are
-                  the advantages of purchasing a website template?</a>
-              </h5>
-            </div>
-            <div class="card-custom-collapse collapse" id="accordionCollapse1" role="tabpanel" aria-labelledby="accordionHeading1">
-              <div class="card-custom-body">
-                <p>The major advantage is price: You get a high quality design for just $20-$70. You don’t have to
-                  hire a web designer or web design studio. Second advantage is time frame: It usually takes 5-15
-                  days for a good designer to produce a web page of such quality.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Bootstrap card-->
-          <div class="card card-custom">
-            <div class="card-custom-heading" id="accordionHeading2" role="tab">
-              <h5 class="card-custom-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#accordionCollapse2" aria-controls="accordionCollapse2">Do you
-                  provide any scripts with your templates or could you do some custom programming?</a>
-              </h5>
-            </div>
-            <div class="card-custom-collapse collapse" id="accordionCollapse2" role="tabpanel" aria-labelledby="accordionHeading2">
-              <div class="card-custom-body">
-                <p>Our templates do not include any additional scripts. Newsletter subscriptions, search fields,
-                  forums, image galleries (in HTML versions of Flash products) are inactive. Basic scripts can be
-                  easily added at zemez.io If you are not sure that the element you’re interested in is active
-                  please contact our Support Chat for clarification.</p>
-              </div>
-            </div>
-          </div>
-          <!-- Bootstrap card-->
-          <div class="card card-custom">
-            <div class="card-custom-heading" id="accordionHeading3" role="tab">
-              <h5 class="card-custom-title"><a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#accordionCollapse3" aria-controls="accordionCollapse3">In what
-                  formats are your templates available?</a>
-              </h5>
-            </div>
-            <div class="card-custom-collapse collapse" id="accordionCollapse3" role="tabpanel" aria-labelledby="accordionHeading3">
-              <div class="card-custom-body">
-                <p>Website templates are available in Photoshop and HTML formats. Fonts are included with Photoshop
-                  file. In most templates HTML is compatible with Adobe®, Dreamweaver® and Microsoft Frontpage®.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-7 col-lg-5">
-        <figure class="button-shadow"><img src="images/home-variant-3-555x800.jpg" alt="" width="555" height="800" />
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
+
 <!-- Counters-->
 <!-- counters-->
-<section class="section parallax-container context-dark" data-parallax-img="images/parallax-1.jpg">
+<section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean040.jpg">
   <div class="parallax-content">
     <div class="container section-md">
       <div class="row justify-content-md-center row-50">
@@ -236,7 +164,7 @@
             <div class="box-counter__wrap">
               <div class="counter">100</div>
             </div>
-            <p class="box-counter__title">Projects Annually</p>
+            <p class="box-counter__title">Ventas anuales</p>
           </article>
         </div>
         <div class="col-md-6 col-lg-3">
@@ -246,7 +174,7 @@
             <div class="box-counter__wrap">
               <div class="counter">45</div>
             </div>
-            <p class="box-counter__title">Awards</p>
+            <p class="box-counter__title">Sucursales</p>
           </article>
         </div>
         <div class="col-md-6 col-lg-3">
@@ -256,7 +184,7 @@
             <div class="box-counter__wrap">
               <div class="counter">98</div><span>%</span>
             </div>
-            <p class="box-counter__title">Positive Reviews</p>
+            <p class="box-counter__title">Impresiones positivas</p>
           </article>
         </div>
         <div class="col-md-6 col-lg-3">
@@ -266,7 +194,7 @@
             <div class="box-counter__wrap">
               <div class="counter">147</div><span>k</span>
             </div>
-            <p class="box-counter__title">Happy Customers</p>
+            <p class="box-counter__title">Clientes satisfechos</p>
           </article>
         </div>
       </div>
@@ -277,12 +205,12 @@
 <!-- Testimonials-->
 <section class="section-md bg-default text-center decor-text" data-content="Testimonials">
   <div class="container">
-    <h4 class="heading-decorated">WHAT PEOPLE SAY</h4>
+    <h4 class="heading-decorated">Testimonios clientes</h4>
     <div class="row row-50">
       <div class="col-md-6">
         <!-- Quote default-->
         <div class="quote-default quote-default_left">
-          <div class="quote-default__image"><img src="images/deborah-quagmire-120x120.jpg" alt="" width="120" height="120" />
+          <div class="quote-default__image"><img src="<?php echo get_template_directory_uri() ?>/images/deborah-quagmire-120x120.jpg" alt="" width="120" height="120" />
           </div>
           <svg class="quote-default__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
             <g>
@@ -291,18 +219,15 @@
             </g>
           </svg>
           <div class="quote-default__text">
-            <p class="q">In our case, there couldn’t be any business without our new website! theFuture provided us
-              with the template that satisfied all our needs and they were the only company that within the first
-              meeting made me feel very confident and comfortable that they understood and could produce what we
-              envisioned. It’s been a terrific experience working with them. </p>
+            <p class="q">Muchas gracias por un excelente servicio al cliente y un producto fantástico. He apreciado mucho la prontitud del servicio y duermo maravillosamente con mi pantalón. </p>
           </div>
-          <p class="quote-default__cite">Jane Smith</p>
+          <p class="quote-default__cite">Luisa velasco</p>
         </div>
       </div>
       <div class="col-md-6">
         <!-- Quote default -->
         <div class="quote-default quote-default_left">
-          <div class="quote-default__image"><img src="images/benedict-arnold-120x120.jpg" alt="" width="120" height="120" />
+          <div class="quote-default__image"><img src="<?php echo get_template_directory_uri() ?>/images/benedict-arnold-120x120.jpg" alt="" width="120" height="120" />
           </div>
           <svg class="quote-default__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
             <g>
@@ -311,12 +236,9 @@
             </g>
           </svg>
           <div class="quote-default__text">
-            <p class="q">My company just launched our completely revamped website based on your template and I
-              couldn't be any happier with the way it turned out, and our experience with theFuture. We purchased
-              your template and transformed our old website into a modern and incredibly attractive site. Their team
-              is a perfect mix of left and right brains as they provided me with everything I wanted to know.</p>
+            <p class="q">Gracias por las recomendaciones personales. Las personas a cargo del servicio al cliente sabían exactamente qué recomendar atendiendo a mis necesidades, estoy muy contenta con mi pantalón nuevo. </p>
           </div>
-          <p class="quote-default__cite">Kate Wilson</p>
+          <p class="quote-default__cite">Camila Cardenas</p>
         </div>
       </div>
     </div>

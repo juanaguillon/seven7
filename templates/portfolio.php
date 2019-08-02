@@ -82,7 +82,11 @@
 
         <!-- Categories-->
         <section class="section-sm">
-          <h6>Categories</h6>
+         <div class="t-categoria">
+             <img src="<?php echo get_template_directory_uri() ?>/images/categoria.svg" height="28" alt="">
+             <h6>Categorias</h6>
+         </div>
+          
           <ul class="list-xxs small">
             <?php
             $categories = get_terms("category", array(
@@ -92,6 +96,53 @@
               <li><a href="#"><?php echo $cat->name ?></a></li>
             <?php endforeach; ?>
           </ul>
+        </section>
+        <section class="filtros-categorias">
+          
+          <div class="filtro">
+            <div class="t-filtro">
+               <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
+                <h6>Talla</h6>
+            </div>
+             
+              <ul>
+               <li><input type="checkbox"><a href="#">04</a></li>
+               <li><input type="checkbox"><a href="#">06</a></li>
+               <li><input type="checkbox"><a href="#">08</a></li>
+               <li><input type="checkbox"><a href="#">10</a></li>
+               <li><input type="checkbox"><a href="#">12</a></li>
+               <li><input type="checkbox"><a href="#">14</a></li>
+              </ul>
+          </div>
+          <div class="filtro">
+             <div class="t-filtro">
+               <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
+                <h6>Color</h6>
+            </div>
+              <ul>
+               <li><input type="checkbox"><a href="#">Azul</a></li>
+               <li><input type="checkbox"><a href="#">Azul claro</a></li>
+               <li><input type="checkbox"><a href="#">Kaki</a></li>
+               <li><input type="checkbox"><a href="#">Azul oscuro</a></li>
+               <li><input type="checkbox"><a href="#">Negro</a></li>
+              </ul>
+          </div>
+          <div class="filtro">
+             <div class="t-filtro">
+               <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
+                <h6>Material</h6>
+            </div>
+              <ul>
+               <li><input type="checkbox"><a href="#">Clasico</a></li>
+               <li><input type="checkbox"><a href="#">Rasgado</a></li>
+               <li><input type="checkbox"><a href="#">Clasico</a></li>
+               <li><input type="checkbox"><a href="#">Rasgado</a></li>
+               <li><input type="checkbox"><a href="#">Tendencia</a></li>
+               <li><input type="checkbox"><a href="#">Tendencia</a></li>
+              </ul>
+          </div>
+           
+            
         </section>
 
       </div>

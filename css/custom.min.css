@@ -1,3 +1,106 @@
+/*------------portafolio------------*/
+
+.section-sm{
+    background:;
+    padding-bottom: 10px;
+}
+
+.list-xxs.small{
+    padding: 18px 10px 25px 10px !important;
+}
+
+.list-xxs.small li a{
+    width: 100%;
+    border-bottom: 1px solid gray;
+    padding: 5px 0 5px 5px;
+    transition:all 0.3s;
+    color:#41516a;
+}
+.t-categoria{
+    background:#41516a;
+    padding: 18px !important;
+    display: flex;
+    align-items: center;
+}
+
+.t-categoria h6{
+    color:white;
+    margin: 0;
+
+}
+.t-categoria img{
+        width: 22px;
+    margin-right: 10px;
+}
+
+.list-xxs.small li a:hover{
+    background: rgba(0, 0, 0, 0.2);
+    border: 0;
+}
+
+.filtros-categorias{
+    margin-top: 20px;
+}
+.filtros-categorias .filtro{
+    margin-bottom: 20px;
+}
+.filtros-categorias .filtro h6{
+    padding: 0 15px;
+}
+.filtros-categorias .filtro ul{
+    padding: 10px;
+    margin: 0;
+}
+.filtros-categorias .filtro ul li a{
+    color:#41516a;
+    margin-left: 10px;
+}
+
+.categoria-activa{
+    background: #00000026;
+    border: 0;
+}
+
+.t-filtro{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    padding: 5px 0;
+}
+.t-filtro h6{
+    margin: 0;
+    padding: 0;
+}
+.t-filtro img{
+    height: 28px;
+}
+
+
+/*------------  portafolio-interna  ------------*/
+
+.single_product_title h3{
+    text-align: left;
+}
+.producto-info img{
+    height: 22px;
+    margin-right: 10px;
+}
+.producto-info .col-md-12{
+    margin-bottom: 10px;
+}
+
+.single_product_data div span strong{
+    color:#41516a !important;
+}
+
+.single_product_material, .single_product_category, .single_product_talls, .single_product_colors, .single_product_ref{
+    margin-bottom: 28px;
+}
+
+
+/*------------portafolio------------*/
+
+
 .seven_jeans_banner {
   display: block;
   margin-left: 70px;
@@ -247,7 +350,7 @@ ul.nav.nav-custom.nav-custom-tabs li {
 }
 .single_product_description {
   text-align: left;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .single_product_data {
   text-align: left;

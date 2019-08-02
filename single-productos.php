@@ -60,26 +60,58 @@ $current_object = get_queried_object();
 
           <h3><?php echo $current_object->post_title ?></h3>
         </div>
-        <div class="single_product_description">
+        
+        <div class="single_product_data producto-info">
+         
+          
+          <div class="">
+              <div class="single_product_material">
+            <div class="d-flex">
+               <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
+                <span><strong>Material: </strong><?php the_field("material",$current_object) ?></span>
+            </div>
+          </div>
+              
+           <div class="single_product_category">
+            <div class="d-flex">
+                <img src="<?php echo get_template_directory_uri() ?>/images/categoria-2.svg" alt="" width="22px">
+                <span><strong>Categoría: </strong><?php echo strip_tags(get_the_term_list($current_object, "category", "", ", ")) ?></span>
+            </div>
+          </div>   
+          </div>
+          
+          <div class="row m-0">
+              <div class="single_product_talls col-md-6 p-0">
+                <div class="d-flex">
+                    <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
+                    <span>
+                    <strong>Tallas: </strong><?php the_field("tallas",$current_object) ?>
+                    </span>
+                </div>
+                
+              </div>
+                <div class="single_product_colors col-md-6 p-0">
+                <div class="d-flex">
+                    <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
+                    <span><strong>Color: </strong><?php the_field("colores",$current_object) ?></span>
+                </div>
+                
+              </div>
+         </div>
+          
+          <div class="single_product_ref">
+           <div class="d-flex">
+               <img src="<?php echo get_template_directory_uri() ?>/images/etiqueta.svg" alt="">
+               <span><strong>Referencia: </strong><?php the_field("referencia", $current_object) ?></span>
+           </div>
+            
+          </div>
+        </div>
+        <div class="single_product_description description">
+         <strong><span>Descripción</span></strong>
+          <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptatum aliquam necessitatibus dolorem, ab eaque quasi aspernatur, aut dolor explicabo repudiandae reprehenderit inventore. Eaque doloribus vero minus odio perspiciatis, velit?</p>
 
           <p><?php echo $current_object->post_excerpt ?></p>
-        </div>
-        <div class="single_product_data">
-          <div class="single_product_talls">
-            <span><strong>Tallas: </strong><?php the_field("tallas",$current_object) ?></span>
-          </div>
-          <div class="single_product_colors">
-            <span><strong>Colores: </strong><?php the_field("colores",$current_object) ?></span>
-          </div>
-          <div class="single_product_material">
-            <span><strong>Material: </strong><?php the_field("material",$current_object) ?></span>
-          </div>
-          <div class="single_product_category">
-            <span><strong>Categoría: </strong><?php echo strip_tags(get_the_term_list($current_object, "category", "", ", ")) ?></span>
-          </div>
-          <div class="single_product_ref">
-            <span><strong>Referencia: </strong><?php the_field("referencia", $current_object) ?></span>
-          </div>
         </div>
       </div>
     </div>

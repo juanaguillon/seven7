@@ -141,12 +141,12 @@ get_header();
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
-                <li>Costa Rica</li>
-                <li>Perú</li>
-                <li>Mexico</li>
-                <li>España</li>
-                <li>Honduras</li>
+                <li>Estados Unidos</li>
                 <li>Bolivia</li>
+                <li>Ecuador</li>
+                <li>Chile</li>
+                <li>Guatemala</li>
+                <li>Costa Rica</li>
 
               </ul>
               <a class="button button-gray-light-outline" href="single-service.html">Saber Más</a>
@@ -156,11 +156,11 @@ get_header();
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
+                <li>Perú</li>
+                <li>México</li>
+                <li>España</li>
+                <li>Honduras</li>
                 <li>Colombia</li>
-                <li>Estados Unidos</li>
-                <li>Ecuador</li>
-                <li>Chile</li>
-                <li>Guatemala</li>
               </ul>
             </article>
           </div>
@@ -202,7 +202,7 @@ get_header();
   <div class="bg-decor d-flex align-items-end" data-parallax-scroll="{&quot;x&quot;: 120, &quot;smoothness&quot;: 60}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-1.png" alt="" />
   </div>
   <div class="container">
-    <h4 class="heading-decorated">Servicios</h4>
+    <h4 class="heading-decorated">Beneficios</h4>
     <div class="row row-50">
       <div class="col-md-6">
         <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-1-652x491.jpg" alt="" width="652" height="491" />
@@ -215,8 +215,17 @@ get_header();
       <div class="col-md-6">
         <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-2-652x491.jpg" alt="" width="652" height="491" />
           <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="single-service.html">Distribución</a></h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quo.</p>
+            <h5><a class="thumbnail-classic-title" href="single-service.html">ASESORIA MODELO DE NEGOCIO</a></h5>
+            <p>Acompañamiento publicitario, diseño de piezas para exhibición, venta y eventos, capacitación y asesoría de apertura de merado y estrategias para venta del producto. </p>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-6">
+        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-4-652x491.jpg" alt="" width="652" height="491" />
+          <div class="caption">
+            <h5><a class="thumbnail-classic-title" href="">Venta al Por Mayor</a></h5>
+            <p>Envíos nacionales e internacionales, contáctanos para asesorarte y brindarte la información que necesitas.
+            </p>
           </div>
         </div>
       </div>
@@ -224,17 +233,7 @@ get_header();
         <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-3-652x491.jpg" alt="" width="652" height="491" />
           <div class="caption">
             <h5><a class="thumbnail-classic-title" href="single-service.html">Venta Minorista</a></h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis aliquid veritatis dolores?</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-4-652x491.jpg" alt="" width="652" height="491" />
-          <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="">Venta al Por Mayor</a></h5>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed magnam possimus commodi quibusdam
-              temporibus nostrum quae laborum qui repellat architecto?
-            </p>
+            <p>Conoce nuestra ultima colección en la sección Catálogo, nos enfocamos las tendencias de moda mundiales y nuestra horma resalta las curvas de la mujer latina.</p>
           </div>
         </div>
       </div>
@@ -261,7 +260,7 @@ get_header();
   <div class="bg-decor d-flex align-items-center" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-6.png" alt="" />
   </div>
   <div class="container">
-    <h4 class="heading-decorated">Portafolio</h4>
+    <h4 class="heading-decorated">CATÁLOGO</h4>
     <div class="isotope-wrap row row-70">
       <div class="col-sm-12">
         <ul class="list-nav isotope-filters isotope-filters-horizontal">
@@ -452,6 +451,7 @@ get_header();
               </div>
             </a>
           </div>
+          
 
         </div>
       </div>
@@ -488,7 +488,7 @@ get_header();
               <label class="form-label" for="contact-message">Mensaje</label>
             </div>
             <div class="terms_of_data">
-              <p class="contact_terms">Los datos personales aquí están relacionados por uested, será utilizados para
+              <p class="contact_terms">Los datos personales aquí están relacionados por usted, serán utilizados para
                 los fines de validar la información entregada, promover, proveer, facturar y distribuir los
                 productos, garantizar el servicios postventa de la empresa, establecer un canal para la adecuada
                 comuncación entre <strong>LINEA DIRECTA</strong> y sis clientes, proveedores, aliados comerciales,

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <div class="preloader">
+  <!-- <div class="preloader">
     <div class="cssload-container">
       <svg class="filter" version="1.1">
         <defs>
@@ -41,7 +41,7 @@
       </div>
       <p>Cargando...</p>
     </div>
-  </div>
+  </div> -->
   <div class="page">
     <header class="page-header">
       <!-- RD Navbar-->
@@ -61,9 +61,6 @@
                 </li>
                 <li>
                   <a href="<?php echo get_permalink(65) ?>">Nosotros</a>
-                </li>
-                <li>
-                  <a href="#">Servicios</a>
                 </li>
                 <li>
                   <a href="<?php echo get_permalink(9) ?>">Portafolio</a>
