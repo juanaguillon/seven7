@@ -1,0 +1,64 @@
+.seven_jeans_banner {
+  display: block;
+  margin-left: 70px;
+  margin-top: 10px;
+}
+
+.terms_of_data {
+  font-size: 12px;
+  margin-top: 26px;
+}
+
+.stepper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.stepper input[type="number"] {
+  padding-left: 25px;
+  text-align: left;
+}
+
+.form-label {
+  left: 25px;
+}
+
+.nosotros_global_figure {
+  height: 450px;
+  width: 450px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.nosotros_global_figure img {
+  width: 100%;
+  position: absolute;
+  width: auto;
+  height: 100%;
+  left: -9999999px;
+  max-width: inherit;
+  right: -9999999px;
+  margin: auto;
+  top: -9999999px;
+  bottom: -9999999px;
+}
+
+.unit-left {
+  display: flex;
+  align-items: center;
+}
+
+.general_icon {
+  font-size: 32px !important;
+  color: #80deea !important;
+}
+
+h6,
+.heading-6 {
+  font-size: 17px;
+  line-height: 1.44444;
+}

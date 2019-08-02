@@ -1,0 +1,111 @@
+.seven_jeans_banner {
+  display: block;
+  margin-left: 70px;
+  margin-top: 10px;
+}
+
+.terms_of_data {
+  font-size: 12px;
+  margin-top: 26px;
+}
+.stepper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.stepper input[type="number"] {
+  padding-left: 25px;
+  text-align: left;
+}
+
+.form-label {
+  left: 25px;
+}
+.nosotros_global_figure {
+  height: 450px;
+  width: 450px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  img {
+    width: 100%;
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: -9999999px;
+    max-width: inherit;
+    right: -9999999px;
+    margin: auto;
+    top: -9999999px;
+    bottom: -9999999px;
+  }
+}
+
+.unit-left {
+  display: flex;
+  align-items: center;
+}
+.general_icon {
+  font-size: 32px !important;
+  color: #80deea !important;
+}
+h6,
+.heading-6 {
+  font-size: 17px;
+  line-height: 1.44444;
+}
+
+// #privacy_wizard {
+//   position: relative;
+//   height: 470px;
+//   .steps ul {
+//     display: flex;
+//     li {
+//       padding: 5px;
+//       font-size: 15px;
+//       a {
+//         padding: 6px;
+//         background: #80e6f4;
+//         color: white;
+//         font-size: 14px;
+//       }
+//       &.disabled a {
+//         background: #e6e6e6;
+//         color: rgb(95, 95, 95);
+//       }
+//       &.current a {
+//         background: #58aeb9;
+//       }
+//     }
+//   }
+//   h3 {
+//     display: none;
+//   }
+//   .wizard_content {
+//     float: left;
+//     height: 350px;
+//     overflow-y: auto;
+//     position: absolute;
+//   }
+//   .actions {
+//     position: absolute;
+//     bottom: 0;
+//     ul {
+//       display: flex;
+//       li {
+//         padding: 5px;
+//         a {
+//           padding: 6px;
+//           background: #80e6f4;
+//           color: white;
+//           &:hover {
+//             background: #58aeb9;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
