@@ -73,7 +73,7 @@
   <div class="section-lg">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-lg-7">
+        <div class="col-sm-12 col-md-12 col-lg-7">
           <h4 class="heading-decorated">Nuestro talento</h4>
           <p>Todas las prendas son producidas bajo rigurosos controles de calidad, las mejores materias primas y tecnología de punta. Dentro de nuestros procesos, hemos desarrollado una sinergia entre creatividad, diseño y calidad que hace que nuestro producto final llegue a manos del cliente con un valor agregado especial.</p>
           
@@ -141,7 +141,7 @@
             
           </div>
         </div>
-        <div class="col-md-7 col-lg-5">
+        <div class="col-md-7 col-lg-5 image-none">
               <figure class="button-shadow"><img src="<?php echo get_template_directory_uri() ?>/images/bg-image-1.jpg" alt="" width="555" height="800">
               </figure>
             </div>

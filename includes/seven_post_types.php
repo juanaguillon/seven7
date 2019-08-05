@@ -115,6 +115,12 @@ function seven_register_the_posts_types()
     ), "category"),
   );
 
+  $taxonomies = array(
+    "talla" => __seven_register_taxonomy("talla", flase),
+    "color" => __seven_register_taxonomy("color"),
+    "material" => __seven_register_taxonomy("material"),
+  );
+
   foreach ($postTypes as $ptkey => $ptvalue) {
     register_post_type($ptkey, $ptvalue);
   }

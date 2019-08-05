@@ -51,7 +51,7 @@
           <div class="rd-navbar-inner">
             <div class="rd-navbar-panel">
               <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-              <div class="rd-navbar-brand"><a class="brand-name" href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo.svg" alt="" width="108" height="40" srcset="<?php echo get_template_directory_uri() ?>images/logo.svg 2x" /></a></div>
+              <div class="rd-navbar-brand"><a class="brand-name" href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo.svg" alt="" width="108" height="40"/></a></div>
             </div>
             <div class="rd-navbar-nav-wrap">
 

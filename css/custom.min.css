@@ -364,6 +364,13 @@ ul.nav.nav-custom.nav-custom-tabs li {
   display: flex;
   justify-content: center;
 } */
+.section-sm{
+    padding: 0 0 !important;
+}
+.category-left-bar{
+    display: grid;
+    grid: 
+}
 
 @media (max-width: 1200px) {
   .header-contacto {
@@ -371,6 +378,16 @@ ul.nav.nav-custom.nav-custom-tabs li {
   }
 }
 @media (max-width: 991px) {
+    .category-left-bar{
+        display: grid;
+    grid-template-columns: 48% 48%;
+    grid-gap: 4%;
+    width: 100%;
+    }
+    
+    .image-none{
+        display: none;
+    }
   .header-contacto {
     height: 450px !important;
   }
@@ -411,6 +428,10 @@ ul.nav.nav-custom.nav-custom-tabs li {
   }
 }
 @media (max-width: 580px) {
+    .category-left-bar{
+        grid-template-columns: 100%;
+        grid-row-gap: 0 !important;
+    }
   .coleccion-img {
     height: 300px;
   }

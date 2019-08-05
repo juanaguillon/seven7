@@ -26,7 +26,7 @@
         <h4 class="heading-decorated">Portafolio</h4>
       </div>
     </div>
-    <div class="row row-70 flex-lg-row-reverse">
+    <div class="row row-70 flex-lg-row-reverse col-reverse">
       <div class="col-lg-8 col-xl-9 section-divided__main section-divided__main-left">
 
         <div class="col-sm-12">
@@ -81,7 +81,10 @@
 
 
         <!-- Categories-->
-        <section class="section-sm">
+        
+        <div class="category-left-bar">
+           
+            <section class="section-sm">
          <div class="t-categoria">
              <img src="<?php echo get_template_directory_uri() ?>/images/categoria.svg" height="28" alt="">
              <h6>Categorias</h6>
@@ -97,6 +100,7 @@
             <?php endforeach; ?>
           </ul>
         </section>
+        
         <section class="filtros-categorias">
           
           <div class="filtro">
@@ -141,9 +145,11 @@
                <li><input type="checkbox"><a href="#">Tendencia</a></li>
               </ul>
           </div>
-           
-            
         </section>
+        
+        </div>
+        
+        
 
       </div>
     </div>

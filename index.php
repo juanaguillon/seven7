@@ -137,7 +137,7 @@ get_header();
 
             </article>
           </div>
-          <div class="col-md-6">
+          <div class="col-6">
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
@@ -149,10 +149,10 @@ get_header();
                 <li>Costa Rica</li>
 
               </ul>
-              <a class="button button-gray-light-outline" href="single-service.html">Saber Más</a>
+              <a class="button button-primary" href="single-service.html">Saber Más</a>
             </article>
           </div>
-          <div class="col-md-6">
+          <div class="col-6">
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
@@ -166,7 +166,7 @@ get_header();
           </div>
         </div>
       </div>
-      <div class="col-md-7 col-lg-6">
+      <div class="col-md-7 col-lg-6 image-none">
         <figure class="image-sizing-1 nosotros_global_figure">
           <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean023.jpg" alt="" width="391" height="642" />
         </figure>

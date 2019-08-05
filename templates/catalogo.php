@@ -82,7 +82,7 @@
       </div>
       <div class="col-sm-12 col-lg-4 coleccion-info isotope-item">
         <div class="t-coleccion">
-          <img src="<?php echo get_template_directory_uri() ?>/images/otoño_1.svg" alt="">
+          <img src="<?php echo get_template_directory_uri() ?>/images/otono_1.svg" alt="">
           <h3>Colección otoño</h3>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor delectus ipsa rerum tempore nam voluptates vel, porro sit, dolores velit asperiores veritatis sequi earum provident illum accusamus. Tempora, accusamus, incidunt.</p>
