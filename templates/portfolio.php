@@ -31,35 +31,16 @@
 
         <div class="col-sm-12">
 
-          <div class="isotope row no-gutters" style="position: relative; height: 971.349px;">
+          <div class="row no-gutters" id="products_ajax_paginator" style="position: relative; height: auto;">
 
             <?php
             $products = new WP_Query(array(
-              "post_type" => "productos"
+              "post_type" => "productos",
+              "posts_per_page" => 10
             ));
-            foreach ($products->posts as $product) : ?>
-              <div class="col-12 col-md-6 col-lg-4 isotope-item" style="position: absolute; left: 0px; top: 0px;">
-                <a class="img-thumbnail-variant-3" href="<?php echo get_permalink($product) ?>">
-                  <img src="<?php echo get_the_post_thumbnail_url($product, "thubmnail") ?>" alt="" width="418" height="315">
-                  <!-- <span class="label-custom label-white">Link</span> -->
-                  <div class="caption">
-                    <span class="icon hover-top-element linear-icon-folder-picture"></span>
-                    <ul class="list-inline-tag hover-top-element">
-                      <?php
-                      foreach (get_the_terms($product, "category") as $term) : ?>
-                        <li> <?php echo $term->name ?></li>
-                      <?php endforeach; ?>
-                    </ul>
+            seven_products_loop($products)
 
-                    <p class="heading-5 hover-top-element"><?php echo $product->post_title ?></p>
-                    <div class="divider"></div>
-                    <p class="small hover-bottom-element">Nuestro Portfolio.</p>
-                    <span class="icon arrow-right linear-icon-arrow-right"></span>
-                  </div>
-                </a>
-              </div>
-
-            <?php endforeach; ?>
+            ?>
           </div>
 
         </div>
@@ -67,11 +48,12 @@
           <!-- Classic Pagination-->
           <nav>
             <ul class="pagination-classic">
-              <li class="active"><span>1</span></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a class="icon linear-icon-arrow-right" href="#"></a></li>
+              <input type="hidden" id="current_taxonomy" value="<?php echo $currentObject->taxonomy ?>">
+              <input type="hidden" id="current_term_id" value="<?php echo $currentObject->term_id ?>">
+              <input type="hidden" id="curremt_posts_per_page" value="<?php echo $products->query["posts_per_page"] ?>">
+              <?php
+              seven_pagination($products->query["posts_per_page"], $products->found_posts);
+              ?>
             </ul>
           </nav>
         </div>
@@ -81,75 +63,7 @@
 
 
         <!-- Categories-->
-        
-        <div class="category-left-bar">
-           
-            <section class="section-sm">
-         <div class="t-categoria">
-             <img src="<?php echo get_template_directory_uri() ?>/images/categoria.svg" height="28" alt="">
-             <h6>Categorias</h6>
-         </div>
-          
-          <ul class="list-xxs small">
-            <?php
-            $categories = get_terms("category", array(
-              "hide_empy" => false
-            ));
-            foreach ($categories  as $cat) : ?>
-              <li><a href="#"><?php echo $cat->name ?></a></li>
-            <?php endforeach; ?>
-          </ul>
-        </section>
-        
-        <section class="filtros-categorias">
-          
-          <div class="filtro">
-            <div class="t-filtro">
-               <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
-                <h6>Talla</h6>
-            </div>
-             
-              <ul>
-               <li><input type="checkbox"><a href="#">04</a></li>
-               <li><input type="checkbox"><a href="#">06</a></li>
-               <li><input type="checkbox"><a href="#">08</a></li>
-               <li><input type="checkbox"><a href="#">10</a></li>
-               <li><input type="checkbox"><a href="#">12</a></li>
-               <li><input type="checkbox"><a href="#">14</a></li>
-              </ul>
-          </div>
-          <div class="filtro">
-             <div class="t-filtro">
-               <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
-                <h6>Color</h6>
-            </div>
-              <ul>
-               <li><input type="checkbox"><a href="#">Azul</a></li>
-               <li><input type="checkbox"><a href="#">Azul claro</a></li>
-               <li><input type="checkbox"><a href="#">Kaki</a></li>
-               <li><input type="checkbox"><a href="#">Azul oscuro</a></li>
-               <li><input type="checkbox"><a href="#">Negro</a></li>
-              </ul>
-          </div>
-          <div class="filtro">
-             <div class="t-filtro">
-               <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
-                <h6>Material</h6>
-            </div>
-              <ul>
-               <li><input type="checkbox"><a href="#">Clasico</a></li>
-               <li><input type="checkbox"><a href="#">Rasgado</a></li>
-               <li><input type="checkbox"><a href="#">Clasico</a></li>
-               <li><input type="checkbox"><a href="#">Rasgado</a></li>
-               <li><input type="checkbox"><a href="#">Tendencia</a></li>
-               <li><input type="checkbox"><a href="#">Tendencia</a></li>
-              </ul>
-          </div>
-        </section>
-        
-        </div>
-        
-        
+        <?php get_template_part("contents/content", "portfolio_sidebar") ?>
 
       </div>
     </div>

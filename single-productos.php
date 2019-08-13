@@ -33,11 +33,13 @@ $current_object = get_queried_object();
           <?php
           $photos = get_field("galeria", $current_object);
           ?>
-          <div class="slick-slider carousel-parent" data-arrows="true" data-loop="false" data-dots="false" data-swipe="true" data-items="1" data-child="#child-carousel" data-for="#child-carousel" data-lightgallery="group">
+          <div class="slick-slider carousel-parent" id="slick_product_bigger" data-arrows="true" data-loop="false" data-dots="false" data-swipe="true" data-items="1" data-child="#child-carousel" data-for="#child-carousel" data-lightgallery="group">
             <?php
             foreach ($photos as $photo) : ?>
               <div class="item single_portfolio_img_wrap">
-                <img src="<?php echo $photo["url"] ?>" alt="" width="1200" height="800" />
+                <a class="single_portfolio_link" data-src="<?php echo $photo["url"] ?>" href="<?php echo $photo["url"] ?>">
+                  <img src="<?php echo $photo["url"] ?>" alt="" width="1200" height="800" />
+                </a>
               </div>
 
             <?php endforeach; ?>
@@ -60,58 +62,56 @@ $current_object = get_queried_object();
 
           <h3><?php echo $current_object->post_title ?></h3>
         </div>
-        
+
         <div class="single_product_data producto-info">
-         
-          
+
+
           <div class="">
-              <div class="single_product_material">
-            <div class="d-flex">
-               <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
-                <span><strong>Material: </strong><?php the_field("material",$current_object) ?></span>
+            <div class="single_product_material">
+              <div class="d-flex">
+                <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
+                <span><strong>Material: </strong><?php echo strip_tags(get_the_term_list($current_object, "material", "", ", ")) ?></span>
+              </div>
             </div>
-          </div>
-              
-           <div class="single_product_category">
-            <div class="d-flex">
+
+            <div class="single_product_category">
+              <div class="d-flex">
                 <img src="<?php echo get_template_directory_uri() ?>/images/categoria-2.svg" alt="" width="22px">
                 <span><strong>Categoría: </strong><?php echo strip_tags(get_the_term_list($current_object, "category", "", ", ")) ?></span>
+              </div>
             </div>
-          </div>   
           </div>
-          
+
           <div class="row m-0">
-              <div class="single_product_talls col-md-6 p-0">
-                <div class="d-flex">
-                    <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
-                    <span>
-                    <strong>Tallas: </strong><?php the_field("tallas",$current_object) ?>
-                    </span>
-                </div>
-                
+            <div class="single_product_talls col-md-6 p-0">
+              <div class="d-flex">
+                <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
+                <span>
+                  <strong>Tallas: </strong><?php echo strip_tags(get_the_term_list($current_object, "talla", "", ", ")) ?>
+                </span>
               </div>
-                <div class="single_product_colors col-md-6 p-0">
-                <div class="d-flex">
-                    <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
-                    <span><strong>Color: </strong><?php the_field("colores",$current_object) ?></span>
-                </div>
-                
+
+            </div>
+            <div class="single_product_colors col-md-6 p-0">
+              <div class="d-flex">
+                <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
+                <span><strong>Color: </strong><?php echo strip_tags(get_the_term_list($current_object, "color", "", ", ")) ?></span>
               </div>
-         </div>
-          
+
+            </div>
+          </div>
+
           <div class="single_product_ref">
-           <div class="d-flex">
-               <img src="<?php echo get_template_directory_uri() ?>/images/etiqueta.svg" alt="">
-               <span><strong>Referencia: </strong><?php the_field("referencia", $current_object) ?></span>
-           </div>
-            
+            <div class="d-flex">
+              <img src="<?php echo get_template_directory_uri() ?>/images/etiqueta.svg" alt="">
+              <span><strong>Referencia: </strong><?php the_field("referencia", $current_object) ?></span>
+            </div>
+
           </div>
         </div>
         <div class="single_product_description description">
-         <strong><span>Descripción</span></strong>
-          <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptatum aliquam necessitatibus dolorem, ab eaque quasi aspernatur, aut dolor explicabo repudiandae reprehenderit inventore. Eaque doloribus vero minus odio perspiciatis, velit?</p>
-
-          <p><?php echo $current_object->post_excerpt ?></p>
+          <strong><span>Descripción</span></strong>
+          <p class="m-0"><?php echo $current_object->post_excerpt ?></p>
         </div>
       </div>
     </div>

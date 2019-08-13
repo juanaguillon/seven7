@@ -20,6 +20,9 @@
 </head>
 
 <body>
+  <script>
+    var ajaxURL = "<?php echo admin_url("admin-ajax.php") ?>"
+  </script>
   <!-- <div class="preloader">
     <div class="cssload-container">
       <svg class="filter" version="1.1">
@@ -51,27 +54,27 @@
           <div class="rd-navbar-inner">
             <div class="rd-navbar-panel">
               <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-              <div class="rd-navbar-brand"><a class="brand-name" href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo.svg" alt="" width="108" height="40"/></a></div>
+              <div class="rd-navbar-brand"><a class="brand-name" href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/images/logo.svg" alt="" width="108" height="40" /></a></div>
             </div>
             <div class="rd-navbar-nav-wrap">
 
               <ul class="rd-navbar-nav">
-                <li class="active">
+                <li class="<?php if (is_home() || is_front_page()) echo "active" ?>">
                   <a href="<?php echo esc_attr(home_url()) ?>">Inicio</a>
                 </li>
-                <li>
+                <li class="<?php if (is_page(65)) echo "active" ?>">
                   <a href="<?php echo get_permalink(65) ?>">Nosotros</a>
                 </li>
-                <li>
+                <li class="<?php if (is_page(9)) echo "active" ?>">
                   <a href="<?php echo get_permalink(9) ?>">Portafolio</a>
                 </li>
-                <li>
+                <li class="<?php if (is_page(49)) echo "active" ?>">
                   <a href="<?php echo get_permalink(49) ?>">Catálogo</a>
                 </li>
-                <li>
+                <li class="<?php if (is_page(11)) echo "active" ?>">
                   <a href="<?php echo get_permalink(11) ?>">Políticas</a>
                 </li>
-                <li>
+                <li class="<?php if (is_page(53)) echo "active" ?>">
                   <a href="<?php echo get_permalink(53) ?>">Contacto</a>
                 </li>
               </ul>

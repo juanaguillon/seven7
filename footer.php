@@ -146,6 +146,7 @@
 <div class="snackbars" id="form-output-global"></div>
 <!-- Javascript-->
 <script src="<?php echo get_template_directory_uri() ?>/js/core.min.js"></script>
+<script src="<?php echo get_template_directory_uri() ?>/js/custom.core.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/script.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/custom.js"></script>
 </body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

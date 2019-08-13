@@ -92,7 +92,7 @@ function __seven_register_taxonomy($name, $is_male = true, $asTag = false, $othe
       'show_ui'               => true,
       'show_admin_column'     => true,
       'query_var'             => true,
-      'rewrite'               => array('slug' => $theName),
+      'rewrite'               => array('slug' => strtolower($theName) ),
     );
   } else {
     $args = $otherArgs;
@@ -115,7 +115,7 @@ function seven_register_the_posts_types()
     ), "category"),
   );
 
-  $taxonomies = array(
+  $taxonomiesProduct = array(
     "talla" => __seven_register_taxonomy("talla", flase),
     "color" => __seven_register_taxonomy("color"),
     "material" => __seven_register_taxonomy("material"),
@@ -124,6 +124,11 @@ function seven_register_the_posts_types()
   foreach ($postTypes as $ptkey => $ptvalue) {
     register_post_type($ptkey, $ptvalue);
   }
+
+  foreach ($taxonomiesProduct as $tax => $taxArgs ){
+    register_taxonomy($tax, "productos", $taxArgs);
+  }
+  
 }
 
 add_action("init", "seven_register_the_posts_types");

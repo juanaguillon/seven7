@@ -3,31 +3,26 @@
 /** Template Name: Index */
 
 get_header();
+
+$current_object = get_queried_object();
 ?>
 
 <div class="swiper-container swiper-slider context-dark swiper-slider_fullheight" data-effect="cropping-circle" data-loop="true" data-direction="vertical" data-autoplay="5500" data-speed="1200" data-mousewheel="false" data-keyboard="true" data-frame-bg="<?php echo get_template_directory_uri() ?>/images/slider-slide-10-1920x1080.jpg">
   <div class="swiper-wrapper">
+    <?php
+    $sliders = get_field("seccion_banner", $current_object);
+    foreach ($sliders as $slider) : ?>
+
     <div class="swiper-slide">
-      <div class="swiper-slide-img" style="background-image: url(<?php echo get_template_directory_uri() ?>/images/slider-slide-8.jpg);"></div>
+      <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"] ?>);"></div>
       <div class="swiper-slide-caption text-left">
         <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
-          Seven7 <span class="seven_jeans_banner">Jeans</span></h1>
+          <?php echo $slider["texto"] ?></h1>
       </div>
     </div>
-    <div class="swiper-slide">
-      <div class="swiper-slide-img" style="background-image: url(<?php echo get_template_directory_uri() ?>/images/slider-slide-6-1920x986.jpg);"></div>
-      <div class="swiper-slide-caption">
-        <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
-          <span class="heading-2 text-transform-none">#Moda&Prendas</span></h1>
-      </div>
-    </div>
-    <div class="swiper-slide">
-      <div class="swiper-slide-img" style="background-image: url(<?php echo get_template_directory_uri() ?>/images/slider-slide-9.jpg);"></div>
-      <div class="swiper-slide-caption text-left">
-        <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
-          #forLadies</h1>
-      </div>
-    </div>
+
+    <?php endforeach; ?>
+
   </div>
   <div class="swiper-button-prev linear-icon-chevron-left"></div>
   <div class="swiper-button-next linear-icon-chevron-right"></div>
@@ -37,80 +32,29 @@ get_header();
   <div class="container">
     <h4 class="heading-decorated">BIENVENIDOS</h4>
     <div class="row row-50 justify-content-md-center justify-content-lg-start">
+      <?php
+      $welcome = get_field("seccion_bienvenidos", $current_object);
+      // printcode($welcome);
+      foreach ($welcome as $wc) : ?>
       <div class="col-md-6 col-lg-4">
         <!-- Blurb circle-->
         <article class="blurb blurb-minimal">
           <div class="unit flex-row unit-spacing-md">
             <div class="unit-left">
               <div class="blurb-minimal__icon">
-                <span class="general_icon fa fa-check-square-o"></span></div>
+                <span class="general_icon welcome_icon">
+                  <img src="<?php echo $wc["icono"] ?>" alt="">
+                </span>
+              </div>
             </div>
             <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#">Calidad</a></p>
-              <p>Brindamos horma garantizada, respaldo de marca a nivel nacional, y telas utilizadas.</p>
+              <p class="blurb__title"><a class="heading-6" href="#"><?php echo $wc["titulo"] ?></a></p>
+              <p><?php echo $wc["descripcion"] ?></p>
             </div>
           </div>
         </article>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-minimal">
-          <div class="unit flex-row unit-spacing-md">
-            <div class="unit-left">
-              <div class="blurb-minimal__icon">
-                <span class="general_icon fa fa-handshake-o"></span></div>
-            </div>
-            <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#">Apoyo</a></p>
-              <p>Asesoria modelo de negocio. Distribuidor autorizado, mayorista y venta por catálogo.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-minimal">
-          <div class="unit flex-row unit-spacing-md">
-            <div class="unit-left">
-              <div class="blurb-minimal__icon"><span class="general_icon fa fa-arrows-alt"></span></div>
-            </div>
-            <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#">Cobertura</a></p>
-              <p>El <strong>ORIGINAL</strong> jean levanta Cola Colombiano.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-minimal">
-          <div class="unit flex-row unit-spacing-md">
-            <div class="unit-left">
-              <div class="blurb-minimal__icon">
-                <span class="general_icon fa fa-shield"></span></div>
-            </div>
-            <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#">Seguridad</a></p>
-              <p>Aceptación en mercados internacionales.</p>
-            </div>
-          </div>
-        </article>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-minimal">
-          <div class="unit flex-row unit-spacing-md">
-            <div class="unit-left">
-              <div class="blurb-minimal__icon">
-                <span class="general_icon fa fa-globe"></span></div>
-            </div>
-            <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#">Globalización</a></p>
-              <p>Contamos con 7 años en el mercado, y posicionamiento en 7 paises.</p>
-            </div>
-          </div>
-        </article>
-      </div>
+      <?php endforeach; ?>
 
     </div>
   </div>
@@ -124,29 +68,25 @@ get_header();
     <div class="row justify-content-md-center justify-content-lg-between row-50 align-items-center">
       <div class="col-lg-6">
         <h4 class="heading-decorated">Nosotros</h4>
-        <p>Somos una emorpresa con el objetivo de comercializar moda femenina, como Jeans, y prendas superiores,
-          Vestidos, chaquetas, blusas, busos entre otros. Buscamos la manera de llegar a personas en busca la manera
-          de resaltar con nueva moda y prendas de alta calidad, y elegancia.</p>
+        <p><?php echo get_field("seccion_nosotros_desc", $current_object) ?></p>
         <div class="row row-30">
-          <div class="col-md-12">
-            <!-- Blurb minimal-->
-            <article class="blurb">
-              <div class="blurb-minimal__icon"><span class="icon linear-icon-rocket"></span></div>
-              <p class="blurb__title">Globalización</p>
-              <p>Contamos con una gran expansión a nivel internacional:</p>
 
-            </article>
-          </div>
           <div class="col-6">
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
-                <li>Estados Unidos</li>
-                <li>Bolivia</li>
-                <li>Ecuador</li>
-                <li>Chile</li>
-                <li>Guatemala</li>
-                <li>Costa Rica</li>
+                <?php
+                $weList = get_field("seccion_nosotros_lista", $current_object);
+                $weList = explode(",", $weList);
+                $count = count($weList);
+                $allList1 = array_slice($weList, 0, $count / 2);
+                $allList2 = array_slice($weList, $count / 2);
+
+
+                foreach ($allList2 as $al2) :
+                  ?>
+                <li><?php echo $al2 ?></li>
+                <?php endforeach; ?>
 
               </ul>
               <a class="button button-primary" href="single-service.html">Saber Más</a>
@@ -156,11 +96,10 @@ get_header();
             <!-- Blurb minimal-->
             <article class="blurb">
               <ul class="list-marked-primary">
-                <li>Perú</li>
-                <li>México</li>
-                <li>España</li>
-                <li>Honduras</li>
-                <li>Colombia</li>
+                <?php
+                foreach ($allList1 as $al1) : ?>
+                <li><?php echo $al1 ?></li>
+                <?php endforeach; ?>
               </ul>
             </article>
           </div>
@@ -174,27 +113,6 @@ get_header();
     </div>
   </div>
 </section>
-<!-- <section class="section-lg bg-image bg-image-4 text-center bg-accent bg-overlay-dark">
-      <div class="container">
-        <div class="row justify-content-sm-center row-60">
-          <div class="col-md-4 col-xl-3">
-            <div class="progress-bar-circle" data-value="0.45" data-gradient="#80deea, #1F2845" data-empty-fill="#fff"
-              data-size="141" data-thickness="5"><span></span></div>
-            <div class="progress-bar-circle-title">Clean Interface</div>
-          </div>
-          <div class="col-md-4 col-xl-3">
-            <div class="progress-bar-circle" data-value="0.60" data-gradient="#80deea, #1F2845" data-empty-fill="#fff"
-              data-size="141" data-thickness="5"><span></span></div>
-            <div class="progress-bar-circle-title">Responsive Design</div>
-          </div>
-          <div class="col-md-4 col-xl-3">
-            <div class="progress-bar-circle" data-value="0.80" data-gradient="#80deea, #1F2845" data-empty-fill="#fff"
-              data-size="141" data-thickness="5"><span></span></div>
-            <div class="progress-bar-circle-title">Easy Customization</div>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
 <section class="section section-md bg-default text-center">
   <div class="bg-decor d-flex align-items-start" data-parallax-scroll="{&quot;x&quot;: 80, &quot;y&quot;: -80,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-3.png" alt="" />
@@ -204,39 +122,20 @@ get_header();
   <div class="container">
     <h4 class="heading-decorated">Beneficios</h4>
     <div class="row row-50">
+      <?php
+      $beneficios = get_field("seccion_beneficios", $current_object);
+      foreach ($beneficios  as $bnf) : ?>
       <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-1-652x491.jpg" alt="" width="652" height="491" />
+        <div class="thumbnail-classic-minimal"><img src="<?php echo $bnf["imagen"] ?>" alt="" width="652" height="491" />
           <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="single-service.html">Diseño y Confeccion</a></h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, tempore?</p>
+            <h5><a class="thumbnail-classic-title" href="single-service.html"><?php echo $bnf["titulo"] ?></a></h5>
+            <p><?php echo $bnf["descipcion"] ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-2-652x491.jpg" alt="" width="652" height="491" />
-          <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="single-service.html">ASESORIA MODELO DE NEGOCIO</a></h5>
-            <p>Acompañamiento publicitario, diseño de piezas para exhibición, venta y eventos, capacitación y asesoría de apertura de merado y estrategias para venta del producto. </p>
-          </div>
-        </div>
-      </div>
-       <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-4-652x491.jpg" alt="" width="652" height="491" />
-          <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="">Venta al Por Mayor</a></h5>
-            <p>Envíos nacionales e internacionales, contáctanos para asesorarte y brindarte la información que necesitas.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo get_template_directory_uri() ?>/images/service-3-652x491.jpg" alt="" width="652" height="491" />
-          <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="single-service.html">Venta Minorista</a></h5>
-            <p>Conoce nuestra ultima colección en la sección Catálogo, nos enfocamos las tendencias de moda mundiales y nuestra horma resalta las curvas de la mujer latina.</p>
-          </div>
-        </div>
-      </div>
+
+      <?php endforeach; ?>
+
     </div>
   </div>
 </section>
@@ -451,7 +350,7 @@ get_header();
               </div>
             </a>
           </div>
-          
+
 
         </div>
       </div>
