@@ -266,6 +266,9 @@ ul.nav.nav-custom.nav-custom-tabs li {
   border-radius: 2px;
   align-items: center;
 }
+.descargar-btn {
+  justify-content: center;
+}
 .descargar-btn img {
   height: 20px;
   margin-left: 10px;

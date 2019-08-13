@@ -20,47 +20,30 @@
 </section>
 <section class="bg-default section-md">
   <div class="container colecciones">
-    <div class="row">
+    <?php
+
+    $colleciones = new WP_Query(array(
+      "post_type" => "colleciones",
+      "posts_per_page" => -1,
+    ));
+    $i = 0;
+    foreach ($colleciones->posts as $col) :
+      ?>
+    <div class="row <?php if ($i % 2) echo "flex-row-reverse" ?>">
       <div class="col-sm-12 col-lg-4 coleccion-info">
         <div class="t-coleccion">
-          <img src="<?php echo get_template_directory_uri() ?>/images/verano_1.svg" alt="">
-          <h3>Colección verano</h3>
+          <img src="<?php echo get_field("icono_de_coleccion", $col) ?>" alt="">
+          <h3><?php echo $col->post_title; ?></h3>
         </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor delectus ipsa rerum tempore nam voluptates vel, porro sit, dolores velit asperiores veritatis sequi earum provident illum accusamus. Tempora, accusamus, incidunt.</p>
+        <p><?php echo $col->post_content; ?></p>
 
-        <button class="descargar-btn button">Descargar <img src="<?php echo get_template_directory_uri() ?>/images/descargar_1.svg" alt=""></button>
+        <a href="<?php echo get_field("pdf_de_coleccion", $col)["url"] ?>" target="_blank" class="descargar-btn button">Descargar <img src="<?php echo get_template_directory_uri() ?>/images/descargar_1.svg" alt=""></a>
       </div>
       <div class="col-sm-12 col-lg-8">
 
-        <a href="#" class="coleccion-img img-thumbnail-variant-3">
-          <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean015.jpg" alt="">
-          <div class="caption">
-
-            <span class="icon hover-top-element linear-icon-folder-picture"></span>
-
-            <ul class="list-inline-tag hover-top-element">
-              <li>9 photos</li>
-              <li>Objects</li>
-            </ul>
-
-            <p class="heading-5 hover-top-element">Colección verano</p>
-
-            <div class="divider"></div>
-
-            <p class="small hover-bottom-element">Descargar</p>
-
-          </div>
-        </a>
-
-      </div>
-    </div>
-    <div class="row col-reverse">
-      <div class="col-sm-12 col-lg-8 isotope-item">
-
         <a href="" class="coleccion-img img-thumbnail-variant-3">
-          <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean025.jpg" alt="">
-
+          <img src="<?php echo get_the_post_thumbnail_url($col, "full") ?>" alt="">
           <div class="caption">
 
             <span class="icon hover-top-element linear-icon-folder-picture"></span>
@@ -70,52 +53,7 @@
               <li>Objects</li>
             </ul>
 
-            <p class="heading-5 hover-top-element">Colección otoño</p>
-
-            <div class="divider"></div>
-
-            <p class="small hover-bottom-element">Descargar</p>
-
-          </div>
-        </a>
-
-      </div>
-      <div class="col-sm-12 col-lg-4 coleccion-info isotope-item">
-        <div class="t-coleccion">
-          <img src="<?php echo get_template_directory_uri() ?>/images/otono_1.svg" alt="">
-          <h3>Colección otoño</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor delectus ipsa rerum tempore nam voluptates vel, porro sit, dolores velit asperiores veritatis sequi earum provident illum accusamus. Tempora, accusamus, incidunt.</p>
-
-        <button class="descargar-btn  button">Descargar<img src="<?php echo get_template_directory_uri() ?>/images/descargar_1.svg" alt=""></button>
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-lg-4 coleccion-info">
-        <div class="t-coleccion">
-          <img src="<?php echo get_template_directory_uri() ?>/images/invierno_1.svg" alt="">
-          <h3>Colección invierno</h3>
-        </div>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor delectus ipsa rerum tempore nam voluptates vel, porro sit, dolores velit asperiores veritatis sequi earum provident illum accusamus. Tempora, accusamus, incidunt.</p>
-
-        <button class="descargar-btn button">Descargar <img src="<?php echo get_template_directory_uri() ?>/images/descargar_1.svg" alt=""></button>
-      </div>
-      <div class="col-sm-12 col-lg-8">
-
-        <a href="#" class="coleccion-img img-thumbnail-variant-3">
-          <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean018.jpg" alt="">
-          <div class="caption">
-
-            <span class="icon hover-top-element linear-icon-folder-picture"></span>
-
-            <ul class="list-inline-tag hover-top-element">
-              <li>9 photos</li>
-              <li>Objects</li>
-            </ul>
-
-            <p class="heading-5 hover-top-element">Colección invierno</p>
+            <p class="heading-5 hover-top-element"><?php echo $col->post_title; ?></p>
 
             <div class="divider"></div>
 
@@ -127,43 +65,14 @@
 
       </div>
     </div>
-    <div class="row col-reverse">
-      <div class="col-sm-12 col-lg-8 isotope-item">
 
-        <a href="" class="coleccion-img img-thumbnail-variant-3">
-          <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean022.jpg" alt="">
+    <?php
+      $i++;
+    endforeach;
 
-          <div class="caption">
-
-            <span class="icon hover-top-element linear-icon-folder-picture"></span>
-
-            <ul class="list-inline-tag hover-top-element">
-              <li>9 photos</li>
-              <li>Objects</li>
-            </ul>
-
-            <p class="heading-5 hover-top-element">Colección primavera</p>
-
-            <div class="divider"></div>
-
-            <p class="small hover-bottom-element">Descargar</p>
+    ?>
 
 
-          </div>
-        </a>
-
-      </div>
-      <div class="col-sm-12 col-lg-4 coleccion-info isotope-item">
-        <div class="t-coleccion">
-          <img src="<?php echo get_template_directory_uri() ?>/images/primavera_1.svg" alt="">
-          <h3>Colección primavera</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor delectus ipsa rerum tempore nam voluptates vel, porro sit, dolores velit asperiores veritatis sequi earum provident illum accusamus. Tempora, accusamus, incidunt.</p>
-
-        <button class="descargar-btn  button">Descargar<img src="<?php echo get_template_directory_uri() ?>/images/descargar_1.svg" alt=""></button>
-      </div>
-
-    </div>
   </div>
 </section>
 <!-- Modal-->

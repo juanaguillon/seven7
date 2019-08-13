@@ -7,7 +7,7 @@
  * @param string $icon Icono que se agregará a el post type
  * @param boolean $isMale Se ajusta en revisar si es un elemento masculino/femenino. Se ajusta en campos como <Ver todos los elementos> o <Ver todas las páginas>
  * @param array $supports Todos los soportes que tiene el post type, por defecto será <<title, editor, thumbnail>>
- * @param array $taxonomie Taxonomias que se agregarán separadas por ","
+ * @param string $taxonomie Taxonomias que se agregarán separadas por ","
  * @return array Lista de args que se pasarán a un nuevo post type.
  * */
 function __seven_register_post_type($name, $icon, $isMale = true, $supports = array(), $taxonomie = "")
@@ -113,6 +113,7 @@ function seven_register_the_posts_types()
     "productos"   => __seven_register_post_type("producto", "dashicons-tag", true, array(
       "excerpt","thumbnail","title"
     ), "category"),
+    "colleciones" => __seven_register_post_type("colección", "dashicons-store")
   );
 
   $taxonomiesProduct = array(
