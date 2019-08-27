@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row justify-content-sm-center justify-content-lg-start row-30 row-md-60">
       <div class="col-sm-10 col-md-6 col-lg-3 "><a class="brand" href="index.html"><img src="<?php echo get_template_directory_uri() ?>/images/logo_white.svg" alt="" width="108" height="40" srcset="<?php echo get_template_directory_uri() ?>/images/logo_white.svg 2x" /></a>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem natus numquam quo quibusdam blanditiis non ex error quae corrupti accusantium nam excepturi, modi ad fuga animi, officiis ea voluptatum libero molestiae assumenda nulla deleniti ipsa quidem. Inventore quaerat nostrum possimus amet, placeat tempora ut tenetur autem! Magni ea voluptatum illo.</p>
+        <p><?php the_field("seccion_footer_descripcion", "option") ?></p>
       </div>
       <div class="col-sm-10 col-md-6 col-lg-2 ">
-        <h6>Navigation</h6>
+        <h6>Navegación</h6>
         <ul class="list-xxs list-primary">
           <li><a href="#">Inicio</a></li>
           <li><a href="#">Nosotros</a></li>
@@ -16,40 +16,13 @@
       </div>
       <div class="col-sm-10 col-md-6 col-lg-4 ">
         <h6>Contacto</h6>
-        <ul class="list-xs">
-          <li>
-            <dl class="list-terms-minimal">
-              <dt>Dirección</dt>
-              <dd>C.C. Visto - Av. Caracas #9 - 48 Local 1011</dd>
-              <dd>C.C. Gran San - Carrera 10 # 9 - 37 Local 2243</dd>
-              <dd>Gran Centro Mayoritsta - Cra 24 # 15 – 61</dd>
-              <dd>C.C. Astrocentro 24 Local 8 Primer piso</dd>
-            </dl>
-          </li>
-          <li>
-            <dl class="list-terms-minimal">
-              <dt>Teléfonos</dt>
-              <dd>
-                <ul class="list-semicolon">
-                  <li><a href="tel:#">(1) 744 28 35 - (+57) 321 264 2361</a></li>
-                  <li><a href="tel:#">(800) 123-0045 - (+57) 321 348 0784</a></li>
-                </ul>
-              </dd>
-            </dl>
-          </li>
-          <li>
-            <dl class="list-terms-minimal">
-              <dt>E-mail</dt>
-              <dd>mercadeoycomunicacionseven7@gmail.com</dd>
-              <dd>gerenciaseven7@hotmail.com</dd>
-            </dl>
-          </li>
-          <li>
-            <dl class="list-terms-minimal">
-              <dt>Abierto de:</dt>
-              <dd>Todos los días: 8am - 8pm</dd>
-            </dl>
-          </li>
+        <ul class="list-xs footer_list_contact">
+          <?php
+          $lis = get_field("seccion_footer_contacto", "option");
+          foreach ($lis as $li) : ?>
+          <li><?php echo $li["texto_de_contacto"]; ?></li>
+
+          <?php endforeach; ?>
         </ul>
       </div>
       <div class="col-sm-10 col-md-6 col-lg-3 ">

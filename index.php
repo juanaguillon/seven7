@@ -13,13 +13,13 @@ $current_object = get_queried_object();
     $sliders = get_field("seccion_banner", $current_object);
     foreach ($sliders as $slider) : ?>
 
-    <div class="swiper-slide">
-      <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"] ?>);"></div>
-      <div class="swiper-slide-caption text-left">
-        <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
-          <?php echo $slider["texto"] ?></h1>
+      <div class="swiper-slide">
+        <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"] ?>);"></div>
+        <div class="swiper-slide-caption text-left">
+          <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
+            <?php echo $slider["texto"] ?></h1>
+        </div>
       </div>
-    </div>
 
     <?php endforeach; ?>
 
@@ -36,24 +36,24 @@ $current_object = get_queried_object();
       $welcome = get_field("seccion_bienvenidos", $current_object);
       // printcode($welcome);
       foreach ($welcome as $wc) : ?>
-      <div class="col-md-6 col-lg-4">
-        <!-- Blurb circle-->
-        <article class="blurb blurb-minimal">
-          <div class="unit flex-row unit-spacing-md">
-            <div class="unit-left">
-              <div class="blurb-minimal__icon">
-                <span class="general_icon welcome_icon">
-                  <img src="<?php echo $wc["icono"] ?>" alt="">
-                </span>
+        <div class="col-md-6 col-lg-4">
+          <!-- Blurb circle-->
+          <article class="blurb blurb-minimal">
+            <div class="unit flex-row unit-spacing-md">
+              <div class="unit-left">
+                <div class="blurb-minimal__icon">
+                  <span class="general_icon welcome_icon">
+                    <img src="<?php echo $wc["icono"] ?>" alt="">
+                  </span>
+                </div>
+              </div>
+              <div class="unit-body">
+                <p class="blurb__title"><a class="heading-6" href="#"><?php echo $wc["titulo"] ?></a></p>
+                <p><?php echo $wc["descripcion"] ?></p>
               </div>
             </div>
-            <div class="unit-body">
-              <p class="blurb__title"><a class="heading-6" href="#"><?php echo $wc["titulo"] ?></a></p>
-              <p><?php echo $wc["descripcion"] ?></p>
-            </div>
-          </div>
-        </article>
-      </div>
+          </article>
+        </div>
       <?php endforeach; ?>
 
     </div>
@@ -85,7 +85,7 @@ $current_object = get_queried_object();
 
                 foreach ($allList2 as $al2) :
                   ?>
-                <li><?php echo $al2 ?></li>
+                  <li><?php echo $al2 ?></li>
                 <?php endforeach; ?>
 
               </ul>
@@ -98,7 +98,7 @@ $current_object = get_queried_object();
               <ul class="list-marked-primary">
                 <?php
                 foreach ($allList1 as $al1) : ?>
-                <li><?php echo $al1 ?></li>
+                  <li><?php echo $al1 ?></li>
                 <?php endforeach; ?>
               </ul>
             </article>
@@ -125,14 +125,14 @@ $current_object = get_queried_object();
       <?php
       $beneficios = get_field("seccion_beneficios", $current_object);
       foreach ($beneficios  as $bnf) : ?>
-      <div class="col-md-6">
-        <div class="thumbnail-classic-minimal"><img src="<?php echo $bnf["imagen"] ?>" alt="" width="652" height="491" />
-          <div class="caption">
-            <h5><a class="thumbnail-classic-title" href="single-service.html"><?php echo $bnf["titulo"] ?></a></h5>
-            <p><?php echo $bnf["descipcion"] ?></p>
+        <div class="col-md-6">
+          <div class="thumbnail-classic-minimal"><img src="<?php echo $bnf["imagen"] ?>" alt="" width="652" height="491" />
+            <div class="caption">
+              <h5><a class="thumbnail-classic-title" href="single-service.html"><?php echo $bnf["titulo"] ?></a></h5>
+              <p><?php echo $bnf["descipcion"] ?></p>
+            </div>
           </div>
         </div>
-      </div>
 
       <?php endforeach; ?>
 
@@ -412,7 +412,7 @@ $current_object = get_queried_object();
   </div>
   <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-left bg-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/images/bg-image-3.jpg)"></div>
 </section>
-<section class="section-lg bg-default text-center">
+<!-- <section class="section-lg bg-default text-center">
   <div class="bg-decor d-flex align-items-center justify-content-end" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-11.png" alt="" />
   </div>
   <div class="container">
@@ -441,10 +441,10 @@ $current_object = get_queried_object();
         </div>
       </div>
       <div class="col-lg-7 text-left">
-        <!-- Owl Carousel-->
+       
         <div class="owl-carousel" data-items="1" data-stage-padding="15" data-loop="true" data-margin="30" data-nav="true" data-autoplay="true">
           <div class="item">
-            <!-- Quote classic-->
+           
             <div class="quote-classic">
               <div class="quote-classic__main">
                 <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
@@ -468,7 +468,7 @@ $current_object = get_queried_object();
             </div>
           </div>
           <div class="item">
-            <!-- Quote classic-->
+         
             <div class="quote-classic">
               <div class="quote-classic__main">
                 <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
@@ -492,7 +492,7 @@ $current_object = get_queried_object();
             </div>
           </div>
           <div class="item">
-            <!-- Quote classic-->
+          
             <div class="quote-classic">
               <div class="quote-classic__main">
                 <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
@@ -519,6 +519,6 @@ $current_object = get_queried_object();
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <?php get_footer() ?>

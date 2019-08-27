@@ -1,6 +1,7 @@
 <?php
 
 include_once "includes/seven_post_types.php";
+include_once "includes/seven_acf_options.php";
 
 function printcode($code)
 {
