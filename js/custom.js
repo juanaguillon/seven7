@@ -54,7 +54,40 @@ function makePaginatorAjax() {
   });
 }
 
+/** Cuando se envie el formulario de contacto */
+function loadContactAjax() {
+  $("#send_form").click(function(event) {
+    event.preventDefault();
+    $("#contact_form_loading").css("display", "block");
+    $.ajax({
+      url: ajaxURL,
+      method: "POST",
+      data: {
+        action: "seven_mail",
+        form_nombre: $("#contact-name").val(),
+        form_email: $("#contact-email").val(),
+        form_cedula: $("#contact-cedula").val(),
+        form_telefono: $("#contact-phone").val(),
+        form_mensaje: $("#contact-message").val()
+      },
+      success: function(ev) {
+        $("#contact_form_loading").css("display", "none");
+        if (ev == 1) {
+          $("#contact_form_messaje_success").css("display", "block");
+        } else {
+          $("#contact_form_messaje_error").css("display", "block");
+        }
+      },
+      error: function() {
+        $("#contact_form_loading").css("display", "none");
+        $("#contact_form_messaje_error").css("display", "block");
+      }
+    });
+  });
+}
+
 $window.on("load", function() {
   initiPlugins();
   makePaginatorAjax();
+  loadContactAjax();
 });

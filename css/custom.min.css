@@ -492,6 +492,49 @@ ul.nav.nav-custom.nav-custom-tabs li {
   color: #a5a5a5;
 }
 
+#contact_form_main .custom-control {
+  padding: 0 !important;
+  align-items: center;
+}
+#contact_form_main .custom-control input {
+  position: static;
+  z-index: 2;
+  opacity: 1;
+  margin-right: 5px;
+}
+#contact_form_main .stepper-arrow {
+  display: none;
+}
+
+#contact_form_loading,
+#contact_form_messaje_success,
+#contact_form_messaje_error {
+  margin-top: 20px;
+  display: none;
+}
+
+.spinner-border {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #252525;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  margin: auto;
+  animation-name: spinner_animation;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spinner_animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 @media (max-width: 992px) {
   .swiper-slider .swiper-button-prev,
   .swiper-slider .swiper-button-next {
@@ -509,5 +552,20 @@ ul.nav.nav-custom.nav-custom-tabs li {
   .swiper-slider .swiper-button-next {
     width: 30px;
     height: 35px;
+  }
+}
+@media (max-width: 520px) {
+  .swiper-frame image {
+    x: -25%;
+  }
+}
+@media (max-width: 470px) {
+  .swiper-frame image {
+    x: -35%;
+  }
+}
+@media (max-width: 400px) {
+  .swiper-frame image {
+    x: -45%;
   }
 }

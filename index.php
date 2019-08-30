@@ -8,7 +8,7 @@ $current_object = get_queried_object();
 ?>
 
 <div class="swiper-container swiper-slider context-dark swiper-slider_fullheight" data-effect="cropping-circle" data-loop="true" data-direction="vertical" data-autoplay="5500" data-speed="1200" data-mousewheel="false" data-keyboard="true" data-frame-bg="<?php echo get_template_directory_uri() ?>/images/slider-slide-10-1920x1080.jpg">
-  <div class="swiper-wrapper">
+  <div id="swipper_wrapper" class="swiper-wrapper">
     <?php
     $sliders = get_field("seccion_banner", $current_object);
     foreach ($sliders as $slider) : ?>
@@ -34,7 +34,6 @@ $current_object = get_queried_object();
     <div class="row row-50 justify-content-md-center justify-content-lg-start">
       <?php
       $welcome = get_field("seccion_bienvenidos", $current_object);
-      // printcode($welcome);
       foreach ($welcome as $wc) : ?>
         <div class="col-md-6 col-lg-4">
           <!-- Blurb circle-->
@@ -107,7 +106,7 @@ $current_object = get_queried_object();
       </div>
       <div class="col-md-7 col-lg-6 image-none">
         <figure class="image-sizing-1 nosotros_global_figure">
-          <img src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean023.jpg" alt="" width="391" height="642" />
+          <img src="<?php the_field("seccion_nosotros_imagen", $current_object) ?>" alt="" width="391" height="642" />
         </figure>
       </div>
     </div>
@@ -365,7 +364,7 @@ $current_object = get_queried_object();
         <div class="col-lg-6">
           <h4 class="heading-decorated">Contáctanos</h4>
           <!-- RD Mailform-->
-          <form class="rd-mailform rd-mailform_style-1" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+          <form id="contact_form_main" class="rd-mailform rd-mailform_style-1" data-form-output="form-output-global">
             <div class="form-wrap">
               <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
               <label class="form-label" for="contact-name">Nombre</label>
@@ -387,14 +386,9 @@ $current_object = get_queried_object();
               <label class="form-label" for="contact-message">Mensaje</label>
             </div>
             <div class="terms_of_data">
-              <p class="contact_terms">Los datos personales aquí están relacionados por usted, serán utilizados para
-                los fines de validar la información entregada, promover, proveer, facturar y distribuir los
-                productos, garantizar el servicios postventa de la empresa, establecer un canal para la adecuada
-                comuncación entre <strong>LINEA DIRECTA</strong> y sis clientes, proveedores, aliados comerciales,
-                etc; Fidelizarlos, hacer investigaciones de cliente, sobre sus gustos, hábitos de consumo, análisis
-                de características demográficas; Mejora de la atención, innovar y perfeccionar los productos y
-                servicios ofrecidos, al igual que dar a conocer las noticias de interés y novedades; Y en general
-                mantener un adecuado conocimiento y comunicación del y con el cliente. </p>
+              <p class="contact_terms">
+                <?php the_field("texto_de_contacto", "option"); ?>
+              </p>
 
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -404,13 +398,30 @@ $current_object = get_queried_object();
 
             </div>
 
-            <button class="button button-primary" type="submit">Enviar</button>
+            <div id="contact_form_loading">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+
+            <button id="send_form" class="button button-primary" type="submit">Enviar</button>
+
+            <div id="contact_form_messaje_success">
+              <div class="alert alert-success" role="alert">
+                Se ha enviado su mensaje correctamente.
+              </div>
+            </div>
+            <div id="contact_form_messaje_error">
+              <div class="alert alert-danger" role="alert">
+                Ha ocurrido un error, intente nuevamente mas tarde.
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-left bg-image" style="background-image: url(<?php echo get_template_directory_uri() ?>/images/bg-image-3.jpg)"></div>
+  <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-left bg-image" style="background-image: url(<?php the_field("imagen_de_contacto", "option") ?>)"></div>
 </section>
 <!-- <section class="section-lg bg-default text-center">
   <div class="bg-decor d-flex align-items-center justify-content-end" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-11.png" alt="" />

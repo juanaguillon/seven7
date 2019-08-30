@@ -9,7 +9,6 @@
             <div class="row justify-content-sm-center">
               <div class="col-md-10 col-xl-8">
                 <h2 class="heading-decorated">Contáctanos</h2>
-                <span>Get in touch with us, don't be shy any advice or dude you have tell us</span>
               </div>
             </div>
           </div>
@@ -24,42 +23,55 @@
     <div class="row">
       <div class=" col-sm-12 col-md-7 margin-b5">
         <h3>Enviar mensaje</h3>
-        <form action="/action_page.php">
+        <form id="contact_form_main" action="/action_page.php">
           <div class="row m-0">
             <div class="form-group col-sm-12 col-md-6">
               <label for="name">Nombre</label>
-              <input type="text" class="form-control" id="">
+              <input id="contact-name" type="text" class="form-control" id="">
             </div>
             <div class="form-group col-sm-12 col-md-6">
-              <label for="">Apellido</label>
-              <input type="text" class="form-control" id="">
+              <label for="">Email</label>
+              <input id="contact-email" type="email" class="form-control" id="">
             </div>
 
           </div>
           <div class="row m-0">
-            <div class="form-group col-6">
-              <label for="phone">Numero celular</label>
-              <input type="text" class="form-control" id="">
+            <div class="form-group col-sm-12 col-md-6">
+              <label for="phone">Cédula</label>
+              <input id="contact-cedula" type="number" class="form-control" id="">
             </div>
-            <div class="form-group col-6">
-              <label for="pwd">Email</label>
-              <input type="email" class="form-control" id="email">
+            <div class="form-group col-sm-12 col-md-6">
+              <label for="pwd">Teléfono</label>
+              <input id="contact-phone" type="number" class="form-control" id="email">
             </div>
 
           </div>
           <div class="row m-0">
-            <div class="form-group col-12">
-              <label for="name">Vienes de una compañia ?</label>
-              <input type="text" class="form-control" id="">
+
+
+            <div class="col-12">
+              <label for="name">¿Cómo te podemos ayudar?</label>
+              <textarea id="contact-message" rows="6" name="comment" class="form-control"></textarea>
             </div>
 
             <div class="col-12">
-              <label for="name">Como te podemos ayudar</label>
-              <textarea rows="6" name="comment" class="form-control"></textarea>
-            </div>
+              <div id="contact_form_loading">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
 
-            <div class="col-12">
-              <button class="web-btn button">Enviar</button>
+              <div id="contact_form_messaje_success">
+                <div class="alert alert-success" role="alert">
+                  Se ha enviado su mensaje correctamente.
+                </div>
+              </div>
+              <div id="contact_form_messaje_error">
+                <div class="alert alert-danger" role="alert">
+                  Ha ocurrido un error, intente nuevamente mas tarde.
+                </div>
+              </div>
+              <button id="send_form" class="web-btn button">Enviar</button>
             </div>
 
           </div>
@@ -74,8 +86,8 @@
           <div class="col-md-12">
             <h3>Infomación de contacto</h3>
             <div class="contacto-info">
-              <span>Telefono: 018000315</span>
-              <span>Email: Someemail@gmail.com</span>
+              <span>Telefono: <?php echo get_field("telefono_de_contacto", "option") ?></span>
+              <span>Email: <?php echo get_field("email_de_contacto", "option") ?></span>
               <div class="contacto-redes">
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
