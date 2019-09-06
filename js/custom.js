@@ -135,7 +135,6 @@ $window.on("load", function() {
   makePaginatorAjax();
   loadContactAjax();
   initSelectFilter();
-  makeTabsInPolicy()
   openModalSearch();
   $(".show_when_load").addClass("showing");
   $(".hide_when_load").addClass("hiding");
