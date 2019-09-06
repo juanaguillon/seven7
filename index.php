@@ -16,8 +16,8 @@ $current_object = get_queried_object();
       <div class="swiper-slide">
         <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"] ?>);"></div>
         <div class="swiper-slide-caption text-left">
-          <h1 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
-            <?php echo $slider["texto"] ?></h1>
+          <h3 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
+            <?php echo $slider["texto"] ?></h3>
         </div>
       </div>
 
@@ -161,194 +161,54 @@ $current_object = get_queried_object();
     <h4 class="heading-decorated">CATÁLOGO</h4>
     <div class="isotope-wrap row row-70">
       <div class="col-sm-12">
+        <?php
+
+        $terms = get_terms(array(
+          "taxonomy" => "category",
+          "hide_empty" => true,
+          "number" => 4
+        ));
+
+        $typesTerms = array_column($terms, "term_id");
+
+        $categories = new WP_Query(array(
+          "post_type" => "productos",
+          "posts_per_page" => -1,
+          "tax_query" => array(
+            array(
+              "taxonomy" => "category",
+              "terms" => $typesTerms
+            )
+          )
+        ));
+        ?>
         <ul class="list-nav isotope-filters isotope-filters-horizontal">
           <li><a class="active" data-isotope-filter="*" data-isotope-group="gallery" href="#">Todo</a></li>
-          <li><a data-isotope-filter="Jeans" data-isotope-group="gallery" href="#">Jeans</a></li>
-          <li><a data-isotope-filter="Prendas" data-isotope-group="gallery" href="#">Prendas</a></li>
-          <li><a data-isotope-filter="Calzado" data-isotope-group="gallery" href="#">Calzado</a></li>
+          <?php
+          foreach ($terms as $term) : ?>
+            <li><a data-isotope-filter="<?php echo $term->name ?>" data-isotope-group="gallery" href="#"><?php echo $term->name ?></a></li>
+
+          <?php endforeach; ?>
         </ul>
         <div class="isotope row" data-isotope-layout="fitRows" data-isotope-group="gallery">
-
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean001.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean001.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean002.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean002.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Prendas"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean003.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean003.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Prendas</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Calzado"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean004.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean004.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Calzado</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean005.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean005.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean006.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean006.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Calzado"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean007.jpg" data-lightgallery="item">
-              <figure>
-                <img class="" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean007.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Calzado</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Prendas"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean008.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean008.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Prendas</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean009.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean009.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Calzado"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean010.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean010.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Calzado</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Jeans"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean011.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean011.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Jeans</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="Calzado"><a class="img-thumbnail-variant-3" href="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean012.jpg" data-lightgallery="item">
-              <figure>
-                <img class="abs_image_top" src="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean012.jpg" alt="" width="418" height="315" />
-              </figure>
-              <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
-                <ul class="list-inline-tag hover-top-element">
-                  <li>Calzado</li>
-                </ul>
-                <p class="heading-5 hover-top-element">Fotografia</p>
-                <div class="divider"></div>
-                <p class="small hover-bottom-element">Nuestro Portafolio</p>
-                <span class="icon arrow-right linear-icon-plus"></span>
-              </div>
-            </a>
-          </div>
+          <?php
+          foreach ($categories->posts as $post) : ?>
+            <div class="col-12 col-md-6 col-lg-4 isotope-item" data-filter="<?php echo get_the_terms($post, "category")[0]->name ?>"><a class="img-thumbnail-variant-3" href="<?php echo get_the_post_thumbnail_url($post, "full") ?>" data-lightgallery="item">
+                <figure>
+                  <img class="abs_image_top" src="<?php echo get_the_post_thumbnail_url($post, "medium_large") ?>" alt="" width="418" height="315" />
+                </figure>
+                <div class="caption"><span class="icon hover-top-element linear-icon-picture"></span>
+                  <ul class="list-inline-tag hover-top-element">
+                    <li><?php echo $post->post_title; ?></li>
+                  </ul>
+                  <p class="heading-5 hover-top-element"><?php echo get_the_terms($post, "category")[0]->name ?></p>
+                  <div class="divider"></div>
+                  <p class="small hover-bottom-element">Nuestro Portafolio</p>
+                  <span class="icon arrow-right linear-icon-plus"></span>
+                </div>
+              </a>
+            </div>
+          <?php endforeach; ?>
 
 
         </div>
@@ -357,6 +217,49 @@ $current_object = get_queried_object();
   </div>
 </section>
 <!-- get a quote-->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <h4 class="text-center mb-4">Últimos Posts</h4>
+      </div>
+
+      <?php
+      $allNotices = new WP_Query(array(
+        "post_type" => "noticia",
+        "posts_per_page" => 3
+      ));
+      foreach ($allNotices->posts as $notice) : ?>
+        <div class="col-md-4">
+
+          <!-- Post classic-->
+          <a style="display:block" href="<?php echo get_permalink($notice) ?>">
+            <article class="post-classic post-minimal">
+              <div class="image_fill">
+                <img src="<?php echo get_the_post_thumbnail_url($notice, "medium") ?>" alt="" width="418" height="315" />
+              </div>
+              <div class="post-classic-title">
+                <h6><?php echo $notice->post_title; ?>
+                </h6>
+              </div>
+              <div class="post-meta">
+                <div class="group">
+                  <time datetime="2018"><?php echo get_the_date("M d, Y", $notice) ?></time>
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+
+      <?php endforeach; ?>
+
+    </div>
+  </div>
+
+</section>
+
 <section class="bg-gray-lighter object-wrap decor-text" data-content="Contact">
   <div class="section-lg">
     <div class="container">

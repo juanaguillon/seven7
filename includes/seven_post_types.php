@@ -10,7 +10,7 @@
  * @param string $taxonomie Taxonomias que se agregarán separadas por ","
  * @return array Lista de args que se pasarán a un nuevo post type.
  * */
-function __seven_register_post_type($name, $icon, $isMale = true, $supports = array(), $taxonomie = "")
+function __seven_register_post_type($name, $icon, $isMale = true, $supports = array(), $taxonomie = "", $prural = "s")
 {
 
   $theName = ucfirst($name);
@@ -21,9 +21,9 @@ function __seven_register_post_type($name, $icon, $isMale = true, $supports = ar
     );
   }
   $labels = array(
-    'name'                  => $theName . 's',
+    'name'                  => $theName . $prural,
     'singular_name'         => $theName,
-    'menu_name'             => $theName . 's',
+    'menu_name'             => $theName . $prural,
     'name_admin_bar'        => $theName,
     'add_new'               => 'Añadir nuev' . $genre,
     'add_new_item'          => "Añadir nuev" . $genre . ' ' . $name,
@@ -52,8 +52,8 @@ function __seven_register_post_type($name, $icon, $isMale = true, $supports = ar
     'supports'           => $supports,
   );
 
-  if ( $taxonomie !== ""){
-    $args["taxonomies"] = explode(",", $taxonomie );
+  if ($taxonomie !== "") {
+    $args["taxonomies"] = explode(",", $taxonomie);
   }
 
   return $args;
@@ -92,7 +92,7 @@ function __seven_register_taxonomy($name, $is_male = true, $asTag = false, $othe
       'show_ui'               => true,
       'show_admin_column'     => true,
       'query_var'             => true,
-      'rewrite'               => array('slug' => strtolower($theName) ),
+      'rewrite'               => array('slug' => strtolower( $theName ) ),
     );
   } else {
     $args = $otherArgs;
@@ -111,26 +111,34 @@ function seven_register_the_posts_types()
 
   $postTypes = array(
     "productos"   => __seven_register_post_type("producto", "dashicons-tag", true, array(
-      "excerpt","thumbnail","title"
+      "excerpt", "thumbnail", "title"
     ), "category"),
-    "colleciones" => __seven_register_post_type("colección", "dashicons-store")
+    "colleciones" => __seven_register_post_type("coleccion", "dashicons-store", null, null, null, "es"),
+    "noticia" => __seven_register_post_type("noticia", "dashicons-admin-site", false, array(
+      "editor", "excerpt", "thumbnail", "title"
+    ))
   );
 
   $taxonomiesProduct = array(
-    "talla" => __seven_register_taxonomy("talla", flase),
+    "talla" => __seven_register_taxonomy("talla", false),
     "color" => __seven_register_taxonomy("color"),
     "material" => __seven_register_taxonomy("material"),
+  );
+  $taxNotices = array(
+    "noti_category" => __seven_register_taxonomy("categoria", false),
+    "noti_tag" => __seven_register_taxonomy("etiqueta", false, true),
   );
 
   foreach ($postTypes as $ptkey => $ptvalue) {
     register_post_type($ptkey, $ptvalue);
   }
 
-  foreach ($taxonomiesProduct as $tax => $taxArgs ){
+  foreach ($taxonomiesProduct as $tax => $taxArgs) {
     register_taxonomy($tax, "productos", $taxArgs);
   }
-  
+  foreach ($taxNotices as $not => $notArgs) {
+    register_taxonomy($not, "noticia", $notArgs);
+  }
 }
 
 add_action("init", "seven_register_the_posts_types");
-

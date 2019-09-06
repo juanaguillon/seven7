@@ -24,41 +24,46 @@
         <img src="<?php echo get_template_directory_uri() ?>/images/talla.svg" alt="">
         <h6>Talla</h6>
       </div>
-
-      <ul>
+      <select name="filter_talla_select" id="filter_talla_select">
+        <option value="">Seleccione una talla</option>
         <?php
-        $tallas = get_terms(array("hide_empty" => false, "taxonomy" => "talla"));
+        $tallas = get_terms(array("hide_empty" => true, "taxonomy" => "talla"));
         foreach ($tallas as $talla) : ?>
-          <li><input type="checkbox"><a href="<?php echo get_term_link($talla) ?>"><?php echo $talla->name ?></a></li>
-        <?php endforeach; ?>
 
-      </ul>
+          <option value="<?php echo get_term_link($talla) ?>"><?php echo $talla->name ?></option>
+        <?php endforeach; ?>
+      </select>
+
+
     </div>
     <div class="filtro">
       <div class="t-filtro">
         <img src="<?php echo get_template_directory_uri() ?>/images/color.svg" alt="">
         <h6>Color</h6>
       </div>
-      <ul>
+      <select name="filter_color_select" id="filter_color_select">
+        <option value="">Seleccione una color</option>
         <?php
-        $colors = get_terms(array("hide_empty" => false, "taxonomy" => "color"));
+        $colors = get_terms(array("hide_empty" => true, "taxonomy" => "color"));
         foreach ($colors as $color) : ?>
-          <li><input type="checkbox"><a href="<?php echo get_term_link($color) ?>"><?php echo $color->name ?></a></li>
+          <option value="<?php echo get_term_link($color) ?>"><?php echo $color->name ?></option>
         <?php endforeach; ?>
-      </ul>
+      </select>
+
     </div>
     <div class="filtro">
       <div class="t-filtro">
         <img src="<?php echo get_template_directory_uri() ?>/images/material.svg" alt="">
         <h6>Material</h6>
       </div>
-      <ul>
+      <select name="filter_material_select" id="filter_material_select">
+        <option value="">Seleccione un material</option>
         <?php
-        $materials = get_terms(array("hide_empty" => false, "taxonomy" => "material"));
+        $materials = get_terms(array("hide_empty" => true, "taxonomy" => "material"));
         foreach ($materials as $material) : ?>
-          <li><input type="checkbox"><a href="<?php echo get_term_link($material) ?>"><?php echo $material->name ?></a></li>
+          <option value="<?php echo get_term_link($material) ?>"><?php echo $material->name ?></option>
         <?php endforeach; ?>
-      </ul>
+      </select>
     </div>
   </section>
 

@@ -1,7 +1,7 @@
 <?php get_header() ?>
 <?php
 $current_object = get_queried_object();
-
+$terms = get_the_terms($current_object, array("category"));
 ?>
 
 
@@ -114,6 +114,31 @@ $current_object = get_queried_object();
           <p class="m-0"><?php echo $current_object->post_excerpt ?></p>
         </div>
       </div>
+
+    </div>
+    <div class="relation_single_product">
+      <h4 class="heading-decorated">Productos Relacionados</h4>
+      <div class="relations_single_wrap">
+        <div class="row">
+          <?php
+          $relationProducts = new WP_Query(array(
+            "post_type" => "productos",
+            "posts_per_page" => "3",
+            "post__not_in" => array($current_object->ID),
+            "tax_query" => array(
+              array(
+                "taxonomy" => "category",
+                "terms" => $terms[0]->term_id
+              )
+            )
+          ));
+
+          seven_products_loop($relationProducts);
+
+          ?>
+        </div>
+      </div>
+
     </div>
 
   </div>

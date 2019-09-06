@@ -1149,9 +1149,6 @@ textarea.form-input {
 .form-wrap_icon {
   position: relative;
 }
-.form-wrap_icon .form-input {
-  padding-left: 60px;
-}
 .form-wrap_icon .form-label {
   left: 60px;
 }

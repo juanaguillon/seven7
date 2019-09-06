@@ -14,6 +14,30 @@ function initiPlugins() {
   });
 }
 
+/**
+ * Cuando se de click eb el item buscar del header, aparece un modal para buscar en la web.
+ */
+function openModalSearch() {
+  $("#search_in_web").click(function() {
+    $("#modal_search").addClass("show");
+
+    // Evitar multiple listeners.
+    $("html, body").off("keydown click");
+    $("html").keydown(function(e) {
+      if (e.keyCode == 27) {
+        $("#modal_search").removeClass("show");
+      }
+    });
+    $("body").click(function(e) {
+      $("#modal_search").removeClass("show");
+    });
+  });
+
+  $(".modal_wrapper, #search_in_web").click(function(e) {
+    e.stopPropagation();
+  });
+}
+
 /** Crear el paginador en el portafolio, taxonomia, categoria, etc.
  *
  */
@@ -86,8 +110,33 @@ function loadContactAjax() {
   });
 }
 
+// function makeTabsInPolicy(){
+//   $("#tabs_policy a").click(function(){
+//     $("#tabs_policy a").removeClass("active")
+//     $(this).addClass("active")
+//     var tabToggle = $(this).data("toggle");
+//     var newDiv = $("#" + tabToggle);
+//     $(".tab-pane").removeClass("active")
+//     newDiv.addClass("active")
+//   })
+// }
+
+function initSelectFilter() {
+  $("#filter_talla_select, #filter_color_select, #filter_material_select").on(
+    "change",
+    function() {
+      window.location.href = $(this).val();
+    }
+  );
+}
+
 $window.on("load", function() {
   initiPlugins();
   makePaginatorAjax();
   loadContactAjax();
+  initSelectFilter();
+  makeTabsInPolicy()
+  openModalSearch();
+  $(".show_when_load").addClass("showing");
+  $(".hide_when_load").addClass("hiding");
 });

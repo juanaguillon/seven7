@@ -132,7 +132,7 @@ function seven_send_mail($nombre, $email, $cedula, $phone, $msj)
   $mensajeSecundario = ob_get_contents();
   ob_clean();
   $cabeceras = 'From: ' . get_field("email_desde", "option") .' <info@sevensiete.com>' . "\r\n";
-  $cabeceras .= 'Reply-To: ' . get_field("email_desde", "option") . ' <info@sevensiete.com>' . "\r\n";
+  $cabeceras .= 'Reply-To: ' . get_field("email_desde", "option") . ' <ventasseven7@hotmail.com>' . "\r\n";
   $cabeceras .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
   $cabeceras .= "Content-type: text/html; charset=UTF-8" . "\r\n";
 

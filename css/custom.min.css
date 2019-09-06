@@ -3,6 +3,49 @@
 .section-sm {
   padding-bottom: 10px;
 }
+.show_when_load {
+  display: none;
+}
+.show_when_load.showing {
+  display: block;
+}
+.hide_when_load {
+  display: block;
+}
+.hide_when_load.hiding {
+  display: none;
+}
+.rd-navbar .rd-navbar-nav > li {
+  vertical-align: middle;
+  text-align: center;
+}
+#search_in_web {
+  cursor: pointer;
+}
+#search_in_web a {
+  font-size: 16px;
+}
+
+/* .rd-navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rd-navbar-nav {
+  display: flex;
+}
+.rd-navbar-nav li a {
+  padding: 0 15px;
+  text-transform: uppercase;
+  color: black;
+  font-size: 12px;
+  line-height: 1.28;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+.rd-navbar-nav li a:hover {
+  color: #00c6df;
+} */
 
 .list-xxs.small {
   padding: 18px 10px 25px 10px !important;
@@ -33,7 +76,7 @@
 
 .list-xxs.small li a:hover {
   background: rgba(0, 0, 0, 0.2);
-  border: 0;
+  border-bottom: 1px solid #cccccc;
 }
 
 .filtros-categorias {
@@ -71,6 +114,49 @@
 }
 .t-filtro img {
   height: 28px;
+}
+.nav-link {
+  cursor: pointer;
+}
+
+.modal_container {
+  position: fixed;
+  z-index: 999999;
+  background: #ffffffe8;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal_input_text {
+  box-shadow: 0 0 4px #bfbfbf;
+}
+.modal_container.show {
+  display: flex;
+}
+.modal_container .modal_wrapper {
+  width: 100%;
+  max-width: 510px;
+}
+
+.search_result_section {
+  margin-top: 15px;
+}
+.search_result_inner {
+  padding: 10px;
+  margin: 5px 0;
+}
+.search_result_title {
+  color: #41516a;
+}
+.search_result_link {
+  display: block;
+}
+.search_result_link:hover {
+  background: #a5e1ea2f;
+  cursor: pointer;
 }
 
 /*------------  portafolio-interna  ------------*/
@@ -385,15 +471,16 @@ ul.nav.nav-custom.nav-custom-tabs li {
   margin-top: 30px;
 }
 
+.single_post_image {
+  margin-top: 25px;
+}
+
 .single_product_data div span strong {
   color: #66d7e6;
 }
-/* #child-carousel {
-  display: flex;
-  justify-content: center;
-} */
+
 .section-sm {
-  padding: 0 0 !important;
+  padding: 13px 0 !important;
 }
 .category-left-bar {
   display: grid;
@@ -524,6 +611,10 @@ ul.nav.nav-custom.nav-custom-tabs li {
   animation-duration: 1.4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+}
+.relation_single_product,
+.relations_single_wrap {
+  margin-top: 25px;
 }
 
 @keyframes spinner_animation {

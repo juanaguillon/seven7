@@ -20,7 +20,7 @@
           <?php
           $lis = get_field("seccion_footer_contacto", "option");
           foreach ($lis as $li) : ?>
-          <li><?php echo $li["texto_de_contacto"]; ?></li>
+            <li><?php echo $li["texto_de_contacto"]; ?></li>
 
           <?php endforeach; ?>
         </ul>
@@ -81,36 +81,14 @@
   </div>
 </div>
 
-<!-- Modal register window-->
-<div class="modal fade" id="modalRegister" role="dialog">
-  <div class="modal-dialog modal-dialog_custom">
-    <!-- Modal content-->
-    <div class="modal-dialog__inner">
-      <button class="close" type="button" data-dismiss="modal"></button>
-      <div class="modal-dialog__content">
-        <h5>Register Form</h5>
-        <!-- RD Mailform-->
-        <form class="rd-mailform rd-mailform_responsive" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
-          <div class="form-wrap form-wrap_icon linear-icon-envelope">
-            <input class="form-input" id="modal-register-email" type="email" name="email" data-constraints="@Email @Required">
-            <label class="form-label" for="modal-register-email">Your e-mail</label>
-          </div>
-          <div class="form-wrap form-wrap_icon linear-icon-lock">
-            <input class="form-input" id="modal-register-password" type="password" name="password" data-constraints="@Required">
-            <label class="form-label" for="modal-register-password">Your password</label>
-          </div>
-          <div class="form-wrap form-wrap_icon linear-icon-lock">
-            <input class="form-input" id="modal-register-password2" type="password" name="password2" data-constraints="@Required">
-            <label class="form-label" for="modal-register-password2">Confirm password</label>
-          </div>
-          <div class="form-wrap">
-            <label class="checkbox-inline">
-              <input type="checkbox" name="remember">Remember me
-            </label>
-          </div>
-          <button class="button button-primary" type="submit">Register</button>
-        </form>
-      </div>
+<div id="modal_search" class="modal_container">
+  <div class="modal_wrapper">
+    <div class="modal_inner">
+      <form action="<?php echo home_url() ?>">
+
+        <input type="text" name="s" class="modal_input_text form-control stepper-input" placeholder="Buscar en web">
+        <input type="submit" value="Buscar" class="web-btn button mt-2 mx-auto">
+      </form>
     </div>
   </div>
 </div>
@@ -122,6 +100,18 @@
 <script src="<?php echo get_template_directory_uri() ?>/js/custom.core.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/script.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/custom.js"></script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Seven7 Jeans Levanta Cola",
+    "url": "<?php echo get_home_url() ?>",
+    "sameAs": [
+      "https://www.instagram.com/seven7jeans_oficial",
+      "https://www.facebook.com/852937958066715"
+    ]
+  }
+</script>
 </body><!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
   (function(w, d, s, l, i) {
