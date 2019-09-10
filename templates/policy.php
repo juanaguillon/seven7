@@ -10,19 +10,19 @@ get_header();
     <!-- Bootstrap tabs-->
     <div class="tabs-custom tabs-horizontal" id="tabs-1">
       <!-- Nav tabs-->
-      <ul class="nav nav-custom nav-custom-tabs">
-        <li><a class="nav-link active" href="#tabs-1-1" data-toggle="tab">Politicas de Privacidad</a></li>
-        <li><a class="nav-link" href="#tabs-1-2" data-toggle="tab">Terminos y Condiciones</a></li>
-        <li><a class="nav-link" href="#tabs-1-3" data-toggle="tab">Restricciones de Uso</a></li>
-        <li><a class="nav-link" href="#tabs-1-4" data-toggle="tab">Terminación de Servicio</a></li>
-        <li><a class="nav-link" href="#tabs-1-5" data-toggle="tab">Comunicación</a></li>
-        <li><a class="nav-link" href="#tabs-1-6" data-toggle="tab">Uso del Sitio</a></li>
-        <li><a class="nav-link" href="#tabs-1-7" data-toggle="tab">Responsabilidad</a></li>
-        <li><a class="nav-link" href="#tabs-1-8" data-toggle="tab">Garantía, devolución y Envio</a></li>
+      <ul id="tabs_policy" class="nav nav-custom nav-custom-tabs">
+        <li><a class="nav-link active" data-toggle="tab_1">Politicas de Privacidad</a></li>
+        <li><a class="nav-link" data-toggle="tab_2">Terminos y Condiciones</a></li>
+        <li><a class="nav-link" data-toggle="tab_3">Restricciones de Uso</a></li>
+        <li><a class="nav-link" data-toggle="tab_4">Terminación de Servicio</a></li>
+        <li><a class="nav-link" data-toggle="tab_5">Comunicación</a></li>
+        <li><a class="nav-link" data-toggle="tab_6">Uso del Sitio</a></li>
+        <li><a class="nav-link" data-toggle="tab_7">Responsabilidad</a></li>
+        <li><a class="nav-link" data-toggle="tab_8">Garantía, devolución y Envio</a></li>
       </ul>
     </div>
     <div class="tab-content text-left">
-      <div class="tab-pane fade show active" id="tabs-1-1">
+      <div class="tab-pane active" id="tab_1">
         <h3>Politicas de Privacidad</h3>
 
         <p> Seven 7 Jeans se compromete a usar la información que proporciones con el único objetivo de llevar a cabo las relaciones normales entre cliente y proveedor y para facilitar las transacciones comerciales entre las partes. Nosotros no compartimos ni vendemos la información de nuestras bases de datos y protegemos tu confidencialidad al grado que lo permita la ley.</p>
@@ -234,17 +234,13 @@ get_header();
         <p>Las bases de datos responsabilidad de Seven 7 Jeans S.A.S. serán objeto de tratamiento durante el tiempo que sea razonable y necesario para la finalidad para la cual son recabados los datos. Una vez cumplida la finalidad o finalidades del tratamiento, y sin Clave.</p>
 
       </div>
-
-
-      <!-- Final de Tab -->
-
-      <div class="tab-pane fade" id="tabs-1-2">
+      <div class="tab-pane" id="tab_2">
         <p>
 
           Seven 7 Jeans S.A.S. dispone del sitio web <strong>www.seven7jeans.com.co</strong> donde ofrece una alternativa a sus usuarios, para la compra de sus productos. A continuación, se encuentran las condiciones que se aceptan al acceder y navegar en el sitio web. Si en cualquier caso no está de acuerdo con la información o contenido de la misma, puedes manifestar tu inconformidad al correo ventasseven7@hotmail.com. En Seven 7 Jeans S.A.S. nos reservamos el derecho a actualizar o cambiar éstos Términos y Condiciones sin previo aviso, así que te recomendamos leer esta sección cuidadosamente. ¡Disfruta tu compra!
         </p>
       </div>
-      <div class="tab-pane fade" id="tabs-1-3">
+      <div class="tab-pane" id="tab_3">
 
         <p>
           Seven 7 Jeans S.A.S. es una empresa legalmente constituida y registrada, por lo tanto, no transfiere ningún derecho, título o interés de cualquier contenido al permitir a sus clientes y visitantes del sitio web www.seven7jeans.com.co interactuar con el mismo. Adicionalmente tiene en su totalidad la propiedad intelectual de cualquier contenido que se descargue, reproduzca, imprima, redistribuya o se guarde de su sitio web u otros aliados. <br><br>
@@ -255,19 +251,18 @@ get_header();
         </p>
 
       </div>
-      <div class="tab-pane fade" id="tabs-1-4">
+      <div class="tab-pane" id="tab_4">
         <p>
           Los términos y condiciones se aplican cuando accedes al sitio, estás en el proceso de registro o tienes un proceso de compra. www.seven7jeans.com.co puede dar por terminado el servicio en cualquier momento sin previa autorización. Las disposiciones relativas a derechos de autor, marcas, responsabilidad, limitación de responsabilidad, indemnización u otros, no desaparecen con ésta terminación.
         </p>
       </div>
-
-      <div class="tab-pane fade" id="tabs-1-5">
+      <div class="tab-pane" id="tab_5">
         <p>En cualquier momento www.seven7jeans.com.co puede enviarte información por medio de correo electrónico, avisos generales a través del sitio, redes sociales o comunicación escrita enviada por correo a tu dirección de registro.</p>
       </div>
-      <div class="tab-pane fade" id="tabs-1-6">
+      <div class="tab-pane" id="tab_6">
         <p>Está estrictamente prohibido el acoso a través del chat de WhatsApp y/o correo electrónico, incluido el uso de lenguaje vulgar, obsceno o abusivo. Por lo tanto, está totalmente prohibido cargar, publicar o distribuir a través de éste sitio web cualquier contenido que sea difamatorio, calumnioso, obsceno, amenazante, invasor de la privacidad o de los derechos de publicidad, abusivo, ilegal, o de cualquier otra naturaleza similar que pueda constituir o fomentar un delito penal o violar los derechos de cualquiera de las partes intervinientes. El incumplimiento de ésta prohibición dará lugar a la responsabilidad civil y pena contempladas por la ley. Asimismo, la suplantación de identidad está expresamente prohibida y será sancionada de conformidad con la legislación vigente.</p>
       </div>
-      <div class="tab-pane fade" id="tabs-1-7">
+      <div class="tab-pane" id="tab_7">
         <p>
           En Seven 7 Jeans S.A.S. estamos comprometidos con la satisfacción de nuestros clientes; por tal razón entregamos tus productos en las condiciones de calidad y cumplimiento establecidos por la ley. La empresa renuncia a las garantías y representaciones hasta el límite impuesto por la ley colombiana, incluyendo, pero no limitado a las garantías de comercialización y aptitud para un propósito particular legal. <br><br>
           Seven 7 Jeans S.A.S., no garantiza que las diferentes funciones contenidas en el sitio web puedan estar sujetas a interrupciones o errores en cualquier momento, tampoco garantiza que el sitio o servidor estén libres de virus, spyware, malware u otras amenazas que puedan afectar la usabilidad de la página. <br><br>
@@ -323,7 +318,7 @@ get_header();
           </li>
           <br><br>
         </ul>
-        
+
         <div class="card_seven">
           <div class="card_seven_wrap">
             <div class="card_seven_header"><span>PRENDAS</span></div>
@@ -348,18 +343,18 @@ get_header();
         </div>
         <p>Las alternativas de solución contempladas de nuestra garantía, una vez el auditor de calidad realiza la revisión correspondiente son: </p>
         <ul>
-            <li>1. Arreglo: En caso de que este se pueda practicar y garantizar se procederá a realizarlo.</li>
-            <li>2. Cambio: se sustituye la referencia motivo de reclamo por otra en buen estado (puede ser por una referencia diferente, del mismo valor pagado). Nota. Solo se autoriza el cambio cuando no se puede practicar arreglo, la solicitud está dentro del tiempo de garantía y se comprueba la existencia de un problema de calidad. </li>
-            <li>3. Negado: Negación del cambio o razón de no hallarse inconvenientes de calidad o vencimiento de tiempo de garantía.</li>
-            <br><br>
+          <li>1. Arreglo: En caso de que este se pueda practicar y garantizar se procederá a realizarlo.</li>
+          <li>2. Cambio: se sustituye la referencia motivo de reclamo por otra en buen estado (puede ser por una referencia diferente, del mismo valor pagado). Nota. Solo se autoriza el cambio cuando no se puede practicar arreglo, la solicitud está dentro del tiempo de garantía y se comprueba la existencia de un problema de calidad. </li>
+          <li>3. Negado: Negación del cambio o razón de no hallarse inconvenientes de calidad o vencimiento de tiempo de garantía.</li>
+          <br><br>
         </ul>
-        
+
         <h5>POLÍTICAS DE ENVIÓ NACIONAL</h5>
-        
-        <p>El envío de los pedidos nacionales será realizado a través de la empresa de envíos TCC y pedidos internacionales a través de la empresa de envíos COPA. El tiempo de envío son 5 días hábiles aparte del tiempo en transporte que está determinado dependiendo de la zona en la que estés comprando. Es condición indispensable para el envío de los productos que el pago se haya hecho efectivo. Una vez que se haya hecho efectivo el pago, Seven 7 Jeans verificará el pedido y los términos descritos en el formato establecido y procederá a enviarlo. Seven 7 Jeans se compromete a realizar entregas exclusivamente dentro del territorio colombiano por medio de la compañía TCC o en las zonas y lugares a los que tenga acceso de acuerdo a su red de distribución y COPA a nivel internacional en los países y territorios a los que tenga acceso, en caso tal de que la zona de destino que elijas no se encuentre dentro del listado de zonas accesibles por parte de la empresa TCC o COPA, la mercancía será destinada a la oficina más cercana a la zona de destino. La entrega de los productos objeto del pedido serán entregados en la dirección que el Usuario haya incluido dentro del formato enviado (solo en el caso que la zona de destino sea accesible por la compañía de transporte o el acuerdo entre las partes). Se entiende que cualquier persona que se encuentre en la dirección donde debe realizarse la entrega, se encuentra debidamente autorizado por el Usuario para recibir su pedido, y por tanto se considerará válida la entrega hecha de esta forma y con ella tanto Seven 7 Jeans como la empresa TCC o COPA habrán cumplido con las obligaciones que han adquirido al respecto, quedando exonerados de cualquier responsabilidad por dicha entrega. Si nadie recibe el pedido en la dirección señalada, la empresa TCC o COPA procederán a dejar el o los productos en la sede de la empresa TCC o COPA más cercana a la zona de destino, la persona que recibe la mercancía debe mostrar un documento de identidad y firmar una guía de entrega al encargado de la empresa TCC o COPA al entregarle su pedido. No se despachará la mercancía adquirida sábados, domingos y festivos, los pedidos están exactamente contados y leídos al salir de la fábrica de Seven 7 Jeans además se hace un sistema de monitoreo por medio de cámaras que garantiza totalmente que los pedidos  salen exactamente con la cantidad pagada por el cliente en dado caso que llegue menos unidades a la oficina de la transportadora no recibir el paquete y poner una reclamación a la transportadora en el mismo momento que estará recibiendo su pedido en dado caso que lleguen menos unidades Seven 7 Jeans S.A.S. no se hará responsable de las unidades faltantes debido a que tenemos un sistema de lectura con código de barra exacto de despachos, los pedidos se enviaran con una bolsa plástica una lona, vinipel y por ultimo una cinta de seguridad que lleva el logo de nuestra empresa. Las falsificaciones replicas o copias de los Logos, Diseños, Marca de Seven 7 Jeans serán penalizados según las leyes Colombianas.</p>
+
+        <p>El envío de los pedidos nacionales será realizado a través de la empresa de envíos TCC y pedidos internacionales a través de la empresa de envíos COPA. El tiempo de envío son 5 días hábiles aparte del tiempo en transporte que está determinado dependiendo de la zona en la que estés comprando. Es condición indispensable para el envío de los productos que el pago se haya hecho efectivo. Una vez que se haya hecho efectivo el pago, Seven 7 Jeans verificará el pedido y los términos descritos en el formato establecido y procederá a enviarlo. Seven 7 Jeans se compromete a realizar entregas exclusivamente dentro del territorio colombiano por medio de la compañía TCC o en las zonas y lugares a los que tenga acceso de acuerdo a su red de distribución y COPA a nivel internacional en los países y territorios a los que tenga acceso, en caso tal de que la zona de destino que elijas no se encuentre dentro del listado de zonas accesibles por parte de la empresa TCC o COPA, la mercancía será destinada a la oficina más cercana a la zona de destino. La entrega de los productos objeto del pedido serán entregados en la dirección que el Usuario haya incluido dentro del formato enviado (solo en el caso que la zona de destino sea accesible por la compañía de transporte o el acuerdo entre las partes). Se entiende que cualquier persona que se encuentre en la dirección donde debe realizarse la entrega, se encuentra debidamente autorizado por el Usuario para recibir su pedido, y por tanto se considerará válida la entrega hecha de esta forma y con ella tanto Seven 7 Jeans como la empresa TCC o COPA habrán cumplido con las obligaciones que han adquirido al respecto, quedando exonerados de cualquier responsabilidad por dicha entrega. Si nadie recibe el pedido en la dirección señalada, la empresa TCC o COPA procederán a dejar el o los productos en la sede de la empresa TCC o COPA más cercana a la zona de destino, la persona que recibe la mercancía debe mostrar un documento de identidad y firmar una guía de entrega al encargado de la empresa TCC o COPA al entregarle su pedido. No se despachará la mercancía adquirida sábados, domingos y festivos, los pedidos están exactamente contados y leídos al salir de la fábrica de Seven 7 Jeans además se hace un sistema de monitoreo por medio de cámaras que garantiza totalmente que los pedidos salen exactamente con la cantidad pagada por el cliente en dado caso que llegue menos unidades a la oficina de la transportadora no recibir el paquete y poner una reclamación a la transportadora en el mismo momento que estará recibiendo su pedido en dado caso que lleguen menos unidades Seven 7 Jeans S.A.S. no se hará responsable de las unidades faltantes debido a que tenemos un sistema de lectura con código de barra exacto de despachos, los pedidos se enviaran con una bolsa plástica una lona, vinipel y por ultimo una cinta de seguridad que lleva el logo de nuestra empresa. Las falsificaciones replicas o copias de los Logos, Diseños, Marca de Seven 7 Jeans serán penalizados según las leyes Colombianas.</p>
 
       </div>
-      <div class="tab-pane fade" id="tabs-1-8">
+      <div class="tab-pane" id="tab_8">
 
       </div>
     </div>

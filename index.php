@@ -4,17 +4,21 @@
 
 get_header();
 
+function hone_shortcode(){
+ob_start();
 $current_object = get_queried_object();
+
 ?>
 
 <div class="swiper-container swiper-slider context-dark swiper-slider_fullheight" data-effect="cropping-circle" data-loop="true" data-direction="vertical" data-autoplay="5500" data-speed="1200" data-mousewheel="false" data-keyboard="true" data-frame-bg="<?php echo get_template_directory_uri() ?>/images/slider-slide-10-1920x1080.jpg">
   <div id="swipper_wrapper" class="swiper-wrapper">
     <?php
     $sliders = get_field("seccion_banner", $current_object);
-    foreach ($sliders as $slider) : ?>
+    foreach ($sliders as $slider) :
+      ?>
 
       <div class="swiper-slide">
-        <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"] ?>);"></div>
+        <div class="swiper-slide-img" style="background-image: url(<?php echo $slider["imagen"]["url"] ?>);"></div>
         <div class="swiper-slide-caption text-left">
           <h3 class="text-transform-none" data-swiper-anime="{ &quot;animation&quot;: &quot;swiperContentFade&quot;, &quot;duration&quot;: 600, &quot;delay&quot;: 500 }">
             <?php echo $slider["texto"] ?></h3>
@@ -42,7 +46,7 @@ $current_object = get_queried_object();
               <div class="unit-left">
                 <div class="blurb-minimal__icon">
                   <span class="general_icon welcome_icon">
-                    <img src="<?php echo $wc["icono"] ?>" alt="">
+                    <img src="<?php echo $wc["icono"]["sizes"]["medium"] ?>" alt="<?php echo $wc["icono"]["alt"] ?>">
                   </span>
                 </div>
               </div>
@@ -106,7 +110,8 @@ $current_object = get_queried_object();
       </div>
       <div class="col-md-7 col-lg-6 image-none">
         <figure class="image-sizing-1 nosotros_global_figure">
-          <img src="<?php the_field("seccion_nosotros_imagen", $current_object) ?>" alt="" width="391" height="642" />
+          <?php $image = get_field("seccion_nosotros_imagen", $current_object) ?>
+          <img src="<?php echo $image["url"] ?>" alt="<?php echo $image["alt"] ?>" width="391" height="642" />
         </figure>
       </div>
     </div>
@@ -114,9 +119,9 @@ $current_object = get_queried_object();
 </section>
 
 <section class="section section-md bg-default text-center">
-  <div class="bg-decor d-flex align-items-start" data-parallax-scroll="{&quot;x&quot;: 80, &quot;y&quot;: -80,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-3.png" alt="" />
+  <div class="bg-decor d-flex align-items-start" data-parallax-scroll="{&quot;x&quot;: 80, &quot;y&quot;: -80,  &quot;smoothness&quot;: 30}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-3.png" />
   </div>
-  <div class="bg-decor d-flex align-items-end" data-parallax-scroll="{&quot;x&quot;: 120, &quot;smoothness&quot;: 60}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-1.png" alt="" />
+  <div class="bg-decor d-flex align-items-end" data-parallax-scroll="{&quot;x&quot;: 120, &quot;smoothness&quot;: 60}"><img src="<?php echo get_template_directory_uri() ?>/images/bg-decor-1.png" />
   </div>
   <div class="container">
     <h4 class="heading-decorated">Beneficios</h4>
@@ -125,7 +130,7 @@ $current_object = get_queried_object();
       $beneficios = get_field("seccion_beneficios", $current_object);
       foreach ($beneficios  as $bnf) : ?>
         <div class="col-md-6">
-          <div class="thumbnail-classic-minimal"><img src="<?php echo $bnf["imagen"] ?>" alt="" width="652" height="491" />
+          <div class="thumbnail-classic-minimal"><img src="<?php echo $bnf["imagen"]["url"] ?>" alt="<?php echo $bnf["imagen"]["alt"] ?>" width="652" height="491" />
             <div class="caption">
               <h5><a class="thumbnail-classic-title" href="single-service.html"><?php echo $bnf["titulo"] ?></a></h5>
               <p><?php echo $bnf["descipcion"] ?></p>
@@ -434,5 +439,13 @@ $current_object = get_queried_object();
     </div>
   </div>
 </section> -->
+<?php 
+return ob_get_clean();
+
+
+} // End function 
+echo hone_shortcode()
+?>
+
 
 <?php get_footer() ?>

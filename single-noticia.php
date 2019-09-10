@@ -9,7 +9,7 @@
         <section class="section-md post-single-body">
           <h2 class="heading-decorated"><?php echo $current_object->post_title ?></h2>
           <div class="single_post_image">
-            <img src="<?php echo get_the_post_thumbnail_url($current_object, "full") ?>" alt="">
+            <img src="<?php echo get_the_post_thumbnail_url($current_object, "full") ?>" alt="<?php echo seven_get_alt_image_by_post($current_object) ?>">
           </div>
           <div class="post-meta">
             <div class="group">
@@ -81,7 +81,7 @@
               <div class="col-md-6">
 
                 <!-- Post classic-->
-                <article class="post-classic post-minimal"><img src="<?php echo get_the_post_thumbnail_url($notice, "medium") ?>" alt="" width="418" height="315" />
+                <article class="post-classic post-minimal"><img src="<?php echo get_the_post_thumbnail_url($notice, "medium") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="418" height="315" />
                   <div class="post-classic-title">
                     <h6><a href="image-post.html"><?php echo $notice->post_title; ?></a></h6>
                   </div>

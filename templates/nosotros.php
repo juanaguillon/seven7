@@ -1,7 +1,6 @@
 <?php
 
-/** Template Name: Nosotros */ ?>
-<?php
+/** Template Name: Nosotros */
 get_header();
 $currentObject = get_queried_object();
 ?>

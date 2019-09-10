@@ -126,11 +126,17 @@ function seven_pagination($posts_per_page, $all_posts)
 
     remove_menu_page('edit.php'); // Posts
     remove_menu_page('edit-comments.php'); // Comments
-    remove_menu_page('plugins.php'); // Plugins
+    // remove_menu_page('plugins.php'); // Plugins
     remove_menu_page('edit.php'); // Posts
   }
   add_action('admin_init', 'my_remove_menu_pages');
 
+  /** Obtener el alt de una imagen de Post */
+  function seven_get_alt_image_by_post($post)
+  {
+    $thumb_id = get_post_thumbnail_id($post);
+    return get_post_meta($thumb_id, '_wp_attachment_image_alt', true);
+  }
 
   function seven_notices_loop($wp_query_object)
   {
@@ -139,7 +145,8 @@ function seven_pagination($posts_per_page, $all_posts)
       <article class="post-classic">
         <div class="post-classic-title post-classic-title-icon linear-icon-star">
           <h3><a href="image-post.html"><?php echo $notice->post_title; ?></a></h3>
-        </div><img src="<?php echo get_the_post_thumbnail_url($notice, "full") ?>" alt="" width="886" height="668" />
+        </div>
+        <img src="<?php echo get_the_post_thumbnail_url($notice, "full") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="886" height="668" />
         <div class="post-classic-body">
           <p><?php echo $notice->post_excerpt; ?></p>
         </div>
