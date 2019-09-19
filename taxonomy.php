@@ -1,7 +1,7 @@
 <?php /* Template Name: Portafilio */ ?>
 <?php get_header() ?>
 <!-- Parallax header-->
-<section>
+<!-- <section>
   <section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/parallax-1.jpg">
     <div class="parallax-content parallax-header">
       <div class="parallax-header__inner context-dark">
@@ -9,7 +9,7 @@
           <div class="container">
             <div class="row justify-content-sm-center">
               <div class="col-md-10 col-xl-8">
-                <h2 class="heading-decorated">Nuestro Portafolio</h2>
+                <h2 class="heading-decorated"><?php echo get_queried_object()->taxonomy ?></h2>
               </div>
             </div>
           </div>
@@ -18,12 +18,24 @@
     </div>
   </section>
 
-</section>
+</section> -->
 <section class="bg-default section-md">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h4 class="heading-decorated">Portafolio</h4>
+        <h4 class="heading-decorated">Colecciones</h4>
+        <div class="portfolio_data_filter" style="margin-top:10px;">
+          <span style="font-weight:bold">Filtro actual: </span>
+          <?php
+          if (get_queried_object()->taxonomy == "category") {
+            $taxonomy = "categoría";
+          } else {
+            $taxonomy = get_queried_object()->taxonomy;
+          }
+
+          ?>
+          <span><?php echo ucfirst($taxonomy) . " - " . get_queried_object()->name  ?></span>
+        </div>
       </div>
     </div>
     <div class="row row-70 flex-lg-row-reverse col-reverse">
@@ -35,9 +47,10 @@
 
             <?php
             $currentObject = get_queried_object();
+
             $products = new WP_Query(array(
               "post_type" => "productos",
-              "posts_per_page" => 10,
+              "posts_per_page" => 12,
               "tax_query" => array(
                 array(
                   "taxonomy" => $currentObject->taxonomy,

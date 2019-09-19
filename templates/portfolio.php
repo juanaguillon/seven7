@@ -2,7 +2,7 @@
 <?php get_header() ?>
 <!-- Parallax header-->
 <section>
-  <section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/parallax-1.jpg">
+  <section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean007.jpg">
     <div class="parallax-content parallax-header">
       <div class="parallax-header__inner context-dark">
         <div class="parallax-header__content">
@@ -21,9 +21,18 @@
 </section>
 <section class="bg-default section-md">
   <div class="container">
+    <?php
+
+    $breadData = array(
+      "Inicio" => home_url(),
+      "Actual" => "Portafolio"
+    );
+    seven_breadcrumb($breadData);
+
+    ?>
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h4 class="heading-decorated">Portafolio</h4>
+        <h4 class="heading-decorated">Colecciones</h4>
       </div>
     </div>
     <div class="row row-70 flex-lg-row-reverse col-reverse">
@@ -36,7 +45,7 @@
             <?php
             $products = new WP_Query(array(
               "post_type" => "productos",
-              "posts_per_page" => 10
+              "posts_per_page" => 12
             ));
             seven_products_loop($products)
 

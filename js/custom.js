@@ -4,9 +4,8 @@ var $document = $(document);
 /* Inicializar Plugins */
 function initiPlugins() {
   $(".img-thumbnail-variant-3").imagefill();
-  // $("#slick_product_bigger").lightGallery({
-  //   selector: $("a.single_portfolio_link")
-  // });
+  $(".search_result_img").imagefill();
+
   $("#slick_product_bigger").lightGallery({
     selector: $("a.single_portfolio_link"),
     mode: "lg-fade",
@@ -15,10 +14,43 @@ function initiPlugins() {
 }
 
 /**
+ * Crear el envio de el mensaje de whatsapp.
+ * Se verificará se se envia directamente a la apliacion android o a la aplicación web.
+ */
+function sendWhatsappMessage() {
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+  var tagHrf = document.getElementById("whatsapp_link");
+  if (tagHrf) {
+    if (isMobile) {
+      var link =
+        "whatsapp://send?phone=573505904528&text=Buen día, quiero saber más información";
+      tagHrf.href = link;
+    } else {
+      var link =
+        "https:///api.whatsapp.com/send?phone=573505904528&text=Buen día, quiero saber más información";
+      tagHrf.href = link;
+    }
+  }
+}
+
+function changeFooterMap(){
+  $(".footer_list_p").click(function(){
+    if ( $(this).data("lat")){
+      initMap({
+        lat: $(this).data("lat"),
+        lng: $(this).data("lon")
+      });
+    }
+  })
+}
+
+/**
  * Cuando se de click eb el item buscar del header, aparece un modal para buscar en la web.
  */
 function openModalSearch() {
-  $("#search_in_web").click(function() {
+  $("#search_in_web, .search_in_web a").click(function() {
     $("#modal_search").addClass("show");
 
     // Evitar multiple listeners.
@@ -33,7 +65,7 @@ function openModalSearch() {
     });
   });
 
-  $(".modal_wrapper, #search_in_web").click(function(e) {
+  $(".modal_wrapper, #search_in_web, .search_in_web").click(function(e) {
     e.stopPropagation();
   });
 }
@@ -73,6 +105,8 @@ function makePaginatorAjax() {
       success: function(data) {
         $("#products_ajax_paginator").html(data);
         $(".img-thumbnail-variant-3").imagefill();
+        $(".show_when_load").addClass("showing");
+        $(".hide_when_load").addClass("hiding");
       }
     });
   });
@@ -92,7 +126,9 @@ function loadContactAjax() {
         form_email: $("#contact-email").val(),
         form_cedula: $("#contact-cedula").val(),
         form_telefono: $("#contact-phone").val(),
-        form_mensaje: $("#contact-message").val()
+        form_mensaje: $("#contact-message").val(),
+        form_ciudad: $("#contact-ciudad").val(),
+        form_pais: $("#contact-pais").val()
       },
       success: function(ev) {
         $("#contact_form_loading").css("display", "none");
@@ -110,32 +146,121 @@ function loadContactAjax() {
   });
 }
 
-// function makeTabsInPolicy(){
-//   $("#tabs_policy a").click(function(){
-//     $("#tabs_policy a").removeClass("active")
-//     $(this).addClass("active")
-//     var tabToggle = $(this).data("toggle");
-//     var newDiv = $("#" + tabToggle);
-//     $(".tab-pane").removeClass("active")
-//     newDiv.addClass("active")
-//   })
-// }
+function makeTabsInPolicy() {
+  $(".tabs_toggle a").click(function() {
+    $(".tabs_toggle a").removeClass("active");
+    $(this).addClass("active");
+    var tabToggle = $(this).data("toggle");
+    var newDiv = $("#" + tabToggle);
+    $(".tab-pane").removeClass("active");
+    newDiv.addClass("active");
+  });
+}
 
+/**
+ * Inicializar los filtros de las colecciones, ( categoria, talla, color, material)
+ */
 function initSelectFilter() {
-  $("#filter_talla_select, #filter_color_select, #filter_material_select").on(
-    "change",
-    function() {
+  var tallaHTML = $("#filter_talla_select");
+  var colorHTML = $("#filter_color_select");
+  var materialHTML = $("#filter_material_select");
+  var categoriaHTML = $("#filter_category_select");
+
+  var talla = tallaHTML.val();
+  var color = colorHTML.val();
+  var material = materialHTML.val();
+  var categoria = categoriaHTML.val();
+  var urlParams = new URLSearchParams();
+  $(
+    "#filter_talla_select, #filter_color_select, #filter_material_select,#filter_category_select"
+  ).on("change", function() {
+    if (
+      color === "null" &&
+      talla === "null" &&
+      material === "null" &&
+      categoria === "null"
+    ) {
+      // Si se está accediendo desde portafolio.
+      // En teoria, es cuando no se haya hecho un filtro anterior a el actual.
       window.location.href = $(this).val();
+    } else {
+      if (talla != "null") {
+        urlParams.set(
+          "talla",
+          tallaHTML.children("option:selected").attr("data-termid")
+        );
+      }
+      if (color != "null") {
+        urlParams.set(
+          "color",
+          colorHTML.children("option:selected").attr("data-termid")
+        );
+      }
+      if (material != "null") {
+        urlParams.set(
+          "material",
+          materialHTML.children("option:selected").attr("data-termid")
+        );
+      }
+      if (categoria != "null") {
+        urlParams.set(
+          "category",
+          categoriaHTML.children("option:selected").attr("data-termid")
+        );
+      }
+
+      urlParams.set(
+        $(this).data("prop"),
+        $(this)
+          .children("option:selected")
+          .data("termid")
+      );
+
+      // La variable "pages" se puede encontrar en el header.php
+      window.location.href = pages["productos"] + "?" + urlParams.toString();
     }
-  );
+  });
+}
+
+/**
+ * Comportamiento de eliminar filtros actuales en la página "productos"
+ */
+function removeFiltersActuals() {
+  $(".data_filters li i").click(function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    urlParams.delete(
+      $(this)
+        .closest("li")
+        .data("category")
+    );
+    console.log(
+      $(this)
+        .closest("li")
+        .data("category")
+    );
+    window.location.href = pages.productos +  "?" + urlParams.toString();
+  });
+}
+
+function policySelectBehiavor() {
+  $("#policy_select").change(function() {
+    var tab = $(this).val();
+    $(".tab-pane").removeClass("active");
+    $("#" + tab).addClass("active");
+  });
 }
 
 $window.on("load", function() {
   initiPlugins();
   makePaginatorAjax();
   loadContactAjax();
+  makeTabsInPolicy();
+  policySelectBehiavor();
   initSelectFilter();
+  removeFiltersActuals();
+  sendWhatsappMessage();
   openModalSearch();
+  changeFooterMap();
   $(".show_when_load").addClass("showing");
   $(".hide_when_load").addClass("hiding");
 });

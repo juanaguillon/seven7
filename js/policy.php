@@ -10,7 +10,7 @@ get_header();
     <!-- Bootstrap tabs-->
     <div class="tabs-custom tabs-horizontal" id="tabs-1">
       <!-- Nav tabs-->
-      <ul id="tabs_policy" class="nav nav-custom nav-custom-tabs tabs_toggle">
+      <ul id="tabs_policy" class="nav nav-custom nav-custom-tabs">
         <li><a class="nav-link active" data-toggle="tab_1">Politicas de Privacidad</a></li>
         <li><a class="nav-link" data-toggle="tab_2">Terminos y Condiciones</a></li>
         <li><a class="nav-link" data-toggle="tab_3">Restricciones de Uso</a></li>
@@ -20,34 +20,6 @@ get_header();
         <li><a class="nav-link" data-toggle="tab_7">Responsabilidad</a></li>
         <li><a class="nav-link" data-toggle="tab_8">Garantía, devolución y Envio</a></li>
       </ul>
-
-      <select name="" id="policy_select">
-        <option value="tab_1">
-          Politicas de Privacidad
-        </option>
-        <option value="tab_2">
-          Terminos y Condiciones
-        </option>
-        <option value="tab_3">
-          Restricciones de Uso
-        </option>
-        <option value="tab_4">
-          Terminación de Servicio
-        </option>
-        <option value="tab_5">
-          Comunicación
-        </option>
-        <option value="tab_6">
-          Uso del Sitio
-        </option>
-        <option value="tab_7">
-          Responsabilidad
-        </option>
-        <option value="tab_8">
-          Garantía, devolución y Envio
-        </option>
-      </select>
-
     </div>
     <div class="tab-content text-left">
       <div class="tab-pane active" id="tab_1">

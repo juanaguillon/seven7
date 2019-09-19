@@ -1,7 +1,7 @@
 <?php
 
 
-function seven_send_mail($nombre, $email, $cedula, $phone, $msj)
+function seven_send_mail($nombre, $email, $cedula, $phone ,$ciudad, $pais, $msj)
 {
   $imagen_respuesta = get_template_directory_uri() . "/images/logo_respuesta.png";
   $url_enviado = get_home_url();
@@ -68,6 +68,22 @@ function seven_send_mail($nombre, $email, $cedula, $phone, $msj)
                     <td>
                       <span>
                         <?php echo $phone; ?>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span><strong>Ciudad</strong></span></td>
+                    <td>
+                      <span>
+                        <?php echo $ciudad; ?>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><span><strong>Pais</strong></span></td>
+                    <td>
+                      <span>
+                        <?php echo $pais; ?>
                       </span>
                     </td>
                   </tr>
@@ -145,7 +161,8 @@ function seven_send_mail($nombre, $email, $cedula, $phone, $msj)
   $encoded_subject = mb_encode_mimeheader($subjectPrincipal, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
   $encoded_subject2 = mb_encode_mimeheader($subjectSecundario, 'UTF-8', 'B', "\r\n", strlen('Subject: '));
 
-  $sending = mail( get_field("email_para", "option"), $encoded_subject, $mensajePrincipal, $cabeceras);
+  $sending = mail( "juanaguilloncar@gmail.com", $encoded_subject, $mensajePrincipal, $cabeceras);
+  // $sending = mail( get_field("email_para", "option"), $encoded_subject, $mensajePrincipal, $cabeceras);
   $sending2 = mail($email, $encoded_subject2, $mensajeSecundario, $cabeceras);
   if ($sending && $sending2) {
     return "1";
@@ -160,10 +177,12 @@ function seven_mail_ajax()
   $email = $_POST["form_email"];
   $cedula = $_POST["form_cedula"];
   $telefono = $_POST["form_telefono"];
+  $ciudad = $_POST["form_ciudad"];
+  $pais = $_POST["form_pais"];
   $mensaje = $_POST["form_mensaje"];
 
   try {
-    echo seven_send_mail($nombre, $email, $cedula, $telefono, $mensaje);
+    echo seven_send_mail($nombre, $email, $cedula, $telefono, $ciudad, $pais, $mensaje);
   } catch (\Throwable $th) {
     echo $th->getMessage();
   }

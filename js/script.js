@@ -2408,7 +2408,7 @@
               layoutMode: xe.getAttribute("data-isotope-layout")
                 ? xe.getAttribute("data-isotope-layout")
                 : "masonry",
-              filter: "*"
+              filter: ':nth-child(-n+9)'
             },
             ke = new Isotope(xe, Ce);
           (xe.isotope = ke), we.push(ke);

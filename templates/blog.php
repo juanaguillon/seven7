@@ -7,7 +7,7 @@
 <?php get_header() ?>
 <!-- Parallax header-->
 <section>
-  <section class="section parallax-container context-dark" data-parallax-img="images/parallax-4.jpg">
+  <section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/medios/seven_7_jeans-jean007.jpg">
     <div class="parallax-content parallax-header">
       <div class="parallax-header__inner context-dark">
         <div class="parallax-header__content">
@@ -26,6 +26,13 @@
 </section>
 <section class="bg-default section-md">
   <div class="container">
+    <?php
+    $breadData = array(
+      "Inicio" => home_url(),
+      "Actual" => "Blog"
+    );
+    seven_breadcrumb($breadData);
+    ?>
     <div class="row row-70">
       <div class="col-lg-7 col-xl-8 section-divided__main">
         <!-- Post classic-->

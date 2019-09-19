@@ -16,7 +16,7 @@ $terms = get_the_terms($current_object, array("category"));
             </div>
           </div>
         </div>
-      </div>
+      </div>c
     </div>
   </div>
 </section> -->
@@ -25,6 +25,15 @@ $terms = get_the_terms($current_object, array("category"));
   <div class="bg-decor d-flex align-items-center" data-parallax-scroll="{&quot;y&quot;: 50,  &quot;smoothness&quot;: 30}"><img src="images/bg-decor-6.png" alt="" />
   </div>
   <div class="container">
+    <?php
+    $breadData = array(
+      "Inicio" => home_url(),
+      "Productos" =>  get_permalink(9) ,
+      "Actual" => $current_object->post_title
+    );
+    seven_breadcrumb($breadData);
+     ?>
+    
     <div class="row">
 
       <div class="col-md-6">
@@ -33,12 +42,12 @@ $terms = get_the_terms($current_object, array("category"));
           <?php
           $photos = get_field("galeria", $current_object);
           ?>
-          <div class="slick-slider carousel-parent" id="slick_product_bigger" data-arrows="true" data-loop="false" data-dots="false" data-swipe="true" data-items="1" data-child="#child-carousel" data-for="#child-carousel" data-lightgallery="group">
+          <div class="slick-slider carousel-parent" id="slick_product_bigger" data-arrows="true" data-loop="false" data-dots="false" data-swipe="true" data-items="1" data-child="#child-carousel" data-for="#child-carousel">
             <?php
             foreach ($photos as $photo) : ?>
               <div class="item single_portfolio_img_wrap">
-                <a class="single_portfolio_link" data-src="<?php echo $photo["url"] ?>" href="<?php echo $photo["url"] ?>">
-                  <img src="<?php echo $photo["url"] ?>" alt="" width="1200" height="800" />
+                <a class="single_portfolio_link" href="<?php echo $photo["url"] ?>">
+                  <img src="<?php echo $photo["url"] ?>" alt="<?php echo $photo["alt"] ?>" width="1200" height="800" />
                 </a>
               </div>
 

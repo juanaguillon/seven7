@@ -1,5 +1,5 @@
 <?php get_header() ?>
-<section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/parallax-3.jpg">
+<section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/404-page.jpg">
   <div class="parallax-content parallax-header text-center">
     <div class="parallax-header__inner context-dark">
       <div class="parallax-header__content">

@@ -52,14 +52,14 @@ function seven_pagination($posts_per_page, $all_posts)
     foreach ($wp_query->posts as $product) : ?>
     <div class="col-12 col-md-6 col-lg-4 show_when_load">
       <a class="img-thumbnail-variant-3" href="<?php echo get_permalink($product) ?>">
-        <img src="<?php echo get_the_post_thumbnail_url($product, "thubmnail") ?>" alt="" width="418" height="315">
+        <img src="<?php echo get_the_post_thumbnail_url($product, "thubmnail") ?>" alt="<?php echo seven_get_alt_image_by_post($product) ?>" width="418" height="315">
         <!-- <span class="label-custom label-white">Link</span> -->
         <div class="caption">
           <span class="icon hover-top-element linear-icon-folder-picture"></span>
           <ul class="list-inline-tag hover-top-element">
             <?php
                 foreach (get_the_terms($product, "category") as $term) : ?>
-              <li> <?php echo $term->name ?></li>
+              <li><?php echo $term->name ?></li>
             <?php endforeach; ?>
           </ul>
 
@@ -74,7 +74,24 @@ function seven_pagination($posts_per_page, $all_posts)
   <?php endforeach;
   }
 
+  function seven_breadcrumb($data)
+  {
+    ?>
+  <div class="breadcrumb_list">
+    <ul>
+      <?php foreach ($data as $li => $lival) : ?>
+        <?php if ($li !== "Actual") : ?>
+          <li><a href="<?php echo $lival ?>"><?php echo $li ?></a></li>
+        <?php else : ?>
+          <li><?php echo $lival ?></li>
+        <?php endif; ?>
+      <?php endforeach; ?>
 
+    </ul>
+  </div>
+
+  <?php
+  }
 
   // PETICIONES AJAX
 
@@ -100,13 +117,12 @@ function seven_pagination($posts_per_page, $all_posts)
       $args["tax_query"] = array(
         array(
           "taxonomy" => $taxonomy,
-          "term_id" => $termid
+          "terms" => $termid
         )
       );
     }
     $wp_query = new WP_Query($args);
 
-    // printcode( $_POST);
 
     seven_products_loop($wp_query);
 
@@ -144,9 +160,12 @@ function seven_pagination($posts_per_page, $all_posts)
     <div class="section-md">
       <article class="post-classic">
         <div class="post-classic-title post-classic-title-icon linear-icon-star">
-          <h3><a href="image-post.html"><?php echo $notice->post_title; ?></a></h3>
+          <h3><a href="<?php echo get_permalink($notice) ?>"><?php echo $notice->post_title; ?></a></h3>
         </div>
-        <img src="<?php echo get_the_post_thumbnail_url($notice, "full") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="886" height="668" />
+        <a href="<?php echo get_permalink($notice) ?>">
+          <img src="<?php echo get_the_post_thumbnail_url($notice, "full") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="886" height="668" />
+        </a>
+
         <div class="post-classic-body">
           <p><?php echo $notice->post_excerpt; ?></p>
         </div>
@@ -167,14 +186,14 @@ function seven_pagination($posts_per_page, $all_posts)
           </div>
         </div>
         <div class="post-classic-footer">
-          <ul class="list-inline-sm">
-            <li><a class="icon-xxs fa-facebook icon" href="#"></a></li>
-            <li><a class="icon-xxs fa-twitter icon" href="#"></a></li>
-            <li><a class="icon-xxs fa-google-plus icon" href="#"></a></li>
-            <li><a class="icon-xxs fa-vimeo icon" href="#"></a></li>
-            <li><a class="icon-xxs fa-youtube icon" href="#"></a></li>
-            <li><a class="icon-xxs fa-pinterest-p icon" href="#"></a></li>
-          </ul>
+          <!-- <ul class="list-inline-sm">
+
+            <li><a class="icon-xxs fa-facebook icon" href="https://www.facebook.com/SEVENSIETEJEANS/"></a></li>
+            <li><a class="icon-xxs fa-twitter icon" href="https://twitter.com/seven7_jeans"></a></li>
+            <li><a class="icon-xxs fa-instagram icon" href="https://www.instagram.com/seven7jeans_oficial/?hl=es-la"></a></li>
+            <li><a class="icon-xxs fa-youtube icon" href="https://www.youtube.com/channel/UC22AYpiP_UcoAJHxiW5HOKQ"></a></li>
+
+          </ul> -->
           <a class="button button-link" href="<?php echo get_permalink($notice); ?>">Ver más</a>
         </div>
       </article>

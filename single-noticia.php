@@ -4,6 +4,14 @@
 
 <section class="bg-default section-lg">
   <div class="container">
+    <?php
+    $breadData = array(
+      "Inicio" => home_url(),
+      "Blog" =>  get_permalink(590),
+      "Actual" => $current_object->post_title
+    );
+    seven_breadcrumb($breadData);
+    ?>
     <div class="row row-60 justify-content-sm-center">
       <div class="col-lg-8 section-divided__main">
         <section class="section-md post-single-body">
@@ -32,12 +40,15 @@
 
 
           <ul class="list-inline-sm">
-            <li><a class="icon-sm fa-facebook icon" href="#"></a></li>
-            <li><a class="icon-sm fa-twitter icon" href="#"></a></li>
-            <li><a class="icon-sm fa-google-plus icon" href="#"></a></li>
-            <li><a class="icon-sm fa-vimeo icon" href="#"></a></li>
-            <li><a class="icon-sm fa-youtube icon" href="#"></a></li>
-            <li><a class="icon-sm fa-pinterest-p icon" href="#"></a></li>
+
+            <li>
+              <a class="facebook_share button button-primary" data-descrip="<?php echo $current_object->post_excerpt ?>" data-nombre="<?php echo $current_object->post_title ?>" data-urlimg="<?php echo get_the_post_thumbnail_url($current_object) ?>">
+                <i class="icon-sm fa-facebook icon"></i>Compartir en Facebook
+              </a>
+            </li>
+            <!-- <li><a class="icon-sm fa-twitter icon" href="https://twitter.com/seven7_jeans"></a></li>
+            <li><a class="icon-sm fa-instagram icon" href="https://www.instagram.com/seven7jeans_oficial/?hl=es-la"></a></li>
+            <li><a class="icon-sm fa-youtube icon" href="https://www.youtube.com/channel/UC22AYpiP_UcoAJHxiW5HOKQ"></a></li> -->
           </ul>
         </section>
         <section class="section-sm">
@@ -79,20 +90,20 @@
             ));
             foreach ($allNotices->posts as $notice) : ?>
               <div class="col-md-6">
-
-                <!-- Post classic-->
-                <article class="post-classic post-minimal"><img src="<?php echo get_the_post_thumbnail_url($notice, "medium") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="418" height="315" />
-                  <div class="post-classic-title">
-                    <h6><a href="image-post.html"><?php echo $notice->post_title; ?></a></h6>
-                  </div>
-                  <div class="post-meta">
-                    <div class="group">
-                      <a href="image-post.html">
-                        <time datetime="2018"><?php echo get_the_date("M d, Y", $notice) ?></time>
-                      </a>
+                <a href="<?php echo get_permalink($notice) ?>">
+                  <article class="post-classic post-minimal"><img src="<?php echo get_the_post_thumbnail_url($notice, "medium") ?>" alt="<?php echo seven_get_alt_image_by_post($notice) ?>" width="418" height="315" />
+                    <div class="post-classic-title">
+                      <h6><?php echo $notice->post_title; ?></h6>
                     </div>
-                  </div>
-                </article>
+                    <div class="post-meta">
+                      <div class="group">
+                        <time datetime="2018"><?php echo get_the_date("M d, Y", $notice) ?></time>
+                      </div>
+                    </div>
+                  </article>
+                </a>
+                <!-- Post classic-->
+
               </div>
 
             <?php endforeach; ?>
@@ -107,4 +118,5 @@
     </div>
   </div>
 </section>
+
 <?php get_footer() ?>

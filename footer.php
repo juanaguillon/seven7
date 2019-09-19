@@ -3,15 +3,40 @@
     <div class="row justify-content-sm-center justify-content-lg-start row-30 row-md-60">
       <div class="col-sm-10 col-md-6 col-lg-3 "><a class="brand" href="index.html"><img src="<?php echo get_template_directory_uri() ?>/images/logo_white.svg" alt="" width="108" height="40" srcset="<?php echo get_template_directory_uri() ?>/images/logo_white.svg 2x" /></a>
         <p><?php the_field("seccion_footer_descripcion", "option") ?></p>
+        <div class="contacto-redes redes-footer">
+          <a href="https://www.facebook.com/SEVENSIETEJEANS/" target="_blank" class="fa fa-facebook"></a>
+          <a href="https://www.instagram.com/seven7jeans_oficial/?hl=es-la" target="_blank" class="fa fa-instagram"></a>
+          <a href="#" target="_blank" class="fa fa-whatsapp" id="whatsapp_link"></a>
+          <a href="https://www.youtube.com/channel/UC22AYpiP_UcoAJHxiW5HOKQ" target="_blank" class="fa fa-youtube"></a>
+        </div>
+        <div class="marca-colombia">
+          <img src="<?php echo home_url() ?>/wp-content/uploads/2019/09/marca-pais-colombia-blanco.png" alt="">
+        </div>
       </div>
       <div class="col-sm-10 col-md-6 col-lg-2 ">
         <h6>Navegación</h6>
         <ul class="list-xxs list-primary">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Nosotros</a></li>
-          <li><a href="#">Servicios</a></li>
-          <li><a href="#">Catálogo</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li>
+            <a href="<?php echo esc_attr(home_url()) ?>">Inicio</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(590) ?>">Blog</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(65) ?>">Nosotros</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(9) ?>">Colecciones</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(49) ?>">Catálogo</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(11) ?>">Políticas</a>
+          </li>
+          <li>
+            <a href="<?php echo get_permalink(53) ?>">Contacto</a>
+          </li>
         </ul>
       </div>
       <div class="col-sm-10 col-md-6 col-lg-4 ">
@@ -20,15 +45,27 @@
           <?php
           $lis = get_field("seccion_footer_contacto", "option");
           foreach ($lis as $li) : ?>
-            <li><?php echo $li["texto_de_contacto"]; ?></li>
+            <li>
+              <span><?php echo $li["titulo_de_contacto"]; ?></span>
 
+              <p <?php if ($li["latitud_de_mapa"] !== "") echo "class='footer_list_p'" . "data-lat='" . $li["latitud_de_mapa"] . "' data-lon='" . $li["longitud_de_mapa"] . "'" ?>>
+                <?php
+                  $textCon = $li["texto_de_contacto"];
+                  $textArr = explode("|", $textCon);
+                  foreach ($textArr as $key => $value) {
+                    if ($key !== 0) {
+                      echo "<br>";
+                    }
+                    echo $value;
+                  }
+                  ?>
+              </p>
+            </li>
           <?php endforeach; ?>
         </ul>
       </div>
       <div class="col-sm-10 col-md-6 col-lg-3 ">
-        <div class="google-map-footer">
-          <!-- RD Google Map-->
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.024927258388!2d-74.10792798523809!3d4.589549496665709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9942302896cb%3A0x102b6cdea4c0bbf8!2sSEVEN+7+JEANS+SAS!5e0!3m2!1ses-419!2sco!4v1564756224739!5m2!1ses-419!2sco" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="google-map-footer" id="map_foot">
         </div>
       </div>
     </div>
@@ -40,14 +77,6 @@
     <div class="footer-corporate__inner">
       <p class="rights"><span>Seven7Jeans</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span>.
         Todos los derechos reservados <a href="privacy-policy.html">Terminos de uso y política de Privacidad</a></p>
-      <ul class="list-inline-xxs">
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-facebook" href="#"></a></li>
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-twitter" href="#"></a></li>
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-google-plus" href="#"></a></li>
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-vimeo" href="#"></a></li>
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-youtube" href="#"></a></li>
-        <li><a class="icon icon-xxs icon-gray-darker fa fa-pinterest" href="#"></a></li>
-      </ul>
     </div>
   </div>
 </footer>
@@ -128,6 +157,108 @@
     f.parentNode.insertBefore(j, f);
   })(window, document, 'script', 'dataLayer', 'GTM-P9FT69');
 </script>
+
+<script>
+  function initMap(latOptions) {
+
+    if (!latOptions) {
+      var latOptions = {
+
+        lat: 4.598914,
+        lng: -74.079264
+
+      };
+    }
+
+
+    var mapFoot = new google.maps.Map(document.getElementById('map_foot'), {
+
+      zoom: 16,
+
+      disableDefaultUI: true,
+
+      gestureHandling: 'greedy',
+
+      // scrollwheel: false,
+
+      center: latOptions,
+
+      // styles: color1,
+
+      // draggable: false
+
+    });
+
+    var markerFoot = new google.maps.Marker({
+
+      position: latOptions,
+
+      map: mapFoot
+
+    });
+
+    /*MAP NOSOTROS*/
+
+    /*marker.addListener('click', function () {
+
+      infowindow.open(map, marker);
+
+    });*/
+
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDL38SPiX3ET5uymp-IWbCS2eDio-O_a8A&callback=initMap"></script>
 <!-- End Google Tag Manager -->
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: 495223124376380,
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v3.3'
+    });
+    FB.AppEvents.logPageView();
+  };
+  (function($) {
+    $('.facebook_share').on('click', function(event) {
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      var linkshare = window.location.href;
+      var titleshare = $(this).data("nombre");
+      var descripshare = $(this).data("descrip");
+      var imgshare = $(this).data("urlimg");
+      var FBDesc = descripshare;
+      var FBTitle = titleshare;
+      var FBLink = linkshare;
+      var FBPic = imgshare;
+      FB.ui({
+        method: 'share',
+        action_type: 'og.likes',
+        mobile_iframe: true,
+        action_properties: JSON.stringify({
+          object: {
+            'og:url': FBLink,
+            'og:title': FBTitle,
+            'og:description': FBDesc,
+            'og:image': FBPic
+          }
+        })
+      }, function(response) {})
+    })
+  })(jQuery);
+</script>
 
 </html>

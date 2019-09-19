@@ -30,7 +30,7 @@ $current_object = get_queried_object();
 
         $notices = new WP_Query(array(
           "post_type" => "noticia",
-          "posts_per_page" => 10,
+          "posts_per_page" => 12,
           "tax_query" => array(
             array(
               "taxonomy" => "noti_category",

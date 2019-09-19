@@ -1,38 +1,29 @@
-<?php get_header() ?>
-<!-- <section>
-  <section class="section parallax-container context-dark" data-parallax-img="<?php echo get_template_directory_uri() ?>/images/parallax-1.jpg">
-    <div class="parallax-content parallax-header">
-      <div class="parallax-header__inner context-dark">
-        <div class="parallax-header__content">
-          <div class="container">
-            <div class="row justify-content-sm-center">
-              <div class="col-md-10 col-xl-8">
-                <h2 class="heading-decorated">Nuestro Portafolio</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<?php
 
-</section> -->
+/** Template Name: Product Filter */
+get_header()
+?>
+
 <section class="bg-default section-md">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <h4 class="heading-decorated">Portafolio</h4>
+        <h4 class="heading-decorated">Colección</h4>
         <div class="portfolio_data_filter" style="margin-top:10px;">
-          <span style="font-weight:bold">Filtro actual: </span>
-          <?php
-          if (get_queried_object()->taxonomy == "category") {
-            $taxonomy = "categoría";
-          } else {
-            $taxonomy = get_queried_object()->taxonomy;
-          }
-
-          ?>
-          <span><?php echo ucfirst($taxonomy) . " - " . get_queried_object()->name  ?></span>
+          <span style="font-weight:bold">Filtros actuales: </span>
+          <ul class="data_filters">
+            <?php
+            foreach ($_GET as $getkey => $getval) {
+              $term = get_term($getval, $getkey);
+              if ($term->taxonomy == "category") {
+                $taxonomy = "categoría";
+              } else {
+                $taxonomy = $term->taxonomy;
+              }
+              echo "<li data-category='" . $getkey . "'><span class='filter_term_name'>" .  ucfirst($taxonomy) . ":</span><span class='filter_term_val'>" . $term->name . "</span><i>&#x2716;</i></li>";
+            }
+            ?>
+          </ul>
         </div>
       </div>
     </div>
@@ -42,27 +33,33 @@
         <div class="col-sm-12">
 
           <div class="row no-gutters" id="products_ajax_paginator" style="position: relative; height: auto;">
-
             <?php
             $currentObject = get_queried_object();
-            $products = new WP_Query(array(
+
+
+            $products = array(
               "post_type" => "productos",
               "posts_per_page" => 12,
-              "tax_query" => array(
-                array(
-                  "taxonomy" => $currentObject->taxonomy,
-                  "terms" => $currentObject->term_id
-                )
-              )
 
-            ));
-            seven_products_loop($products);
+            );
+            $taxQuery = array();
+
+            foreach ($_GET as $keyget => $valget) {
+              $taxQuery[] = array(
+                "taxonomy" => $keyget,
+                "terms" => $valget
+              );
+            }
+            $products["tax_query"] = $taxQuery;
+            $wpQuery = new WP_Query($products);
+            seven_products_loop($wpQuery);
             ?>
           </div>
 
         </div>
         <div class="col-sm-12 portafolio-nav-pages">
           <!-- Classic Pagination-->
+
           <nav>
             <ul class="pagination-classic">
               <input type="hidden" id="current_taxonomy" value="<?php echo $currentObject->taxonomy ?>">
