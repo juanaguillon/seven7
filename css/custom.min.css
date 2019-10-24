@@ -165,6 +165,9 @@
 .redes-footer a:last-child {
   margin: 0;
 }
+.modal.show{
+  display:block;
+}
 .modal_container {
   position: fixed;
   z-index: 999999;
@@ -769,8 +772,8 @@ ul.nav.nav-custom.nav-custom-tabs li {
   align-items: center;
   justify-content: center;
 }
-.footer_list_p:hover {
-  color: white;
+.footer_list_p:hover, .footer_list_link:hover {
+  color: white !important;
   cursor: pointer;
 }
 .bg-decor {

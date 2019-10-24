@@ -6218,7 +6218,7 @@ h3 + .owl-carousel,
 }
 @media (min-width: 1200px) {
   * + .quote-default {
-    margin-top: 65px;
+    margin: 35px 0;
   }
   .divider-small + * {
     margin-top: 55px;

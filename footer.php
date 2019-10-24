@@ -6,7 +6,7 @@
         <div class="contacto-redes redes-footer">
           <a href="https://www.facebook.com/SEVENSIETEJEANS/" target="_blank" class="fa fa-facebook"></a>
           <a href="https://www.instagram.com/seven7jeans_oficial/?hl=es-la" target="_blank" class="fa fa-instagram"></a>
-          <a href="#" target="_blank" class="fa fa-whatsapp" id="whatsapp_link"></a>
+          <a href="#" target="_blank" class="fa fa-whatsapp whatsapp_link" id=""></a>
           <a href="https://www.youtube.com/channel/UC22AYpiP_UcoAJHxiW5HOKQ" target="_blank" class="fa fa-youtube"></a>
         </div>
         <div class="marca-colombia">
@@ -47,17 +47,40 @@
           foreach ($lis as $li) : ?>
             <li>
               <span><?php echo $li["titulo_de_contacto"]; ?></span>
+              <?php
+                if ($li["latitud_de_mapa"] !== "") {
+                  $attrsNew = "data-lat='{$li["latitud_de_mapa"]}' data-lon='{$li["longitud_de_mapa"]}'";
+                  $className = "footer_list_p";
+                } else {
+                  $className = "";
+                  $attrsNew = "";
+                }
 
-              <p <?php if ($li["latitud_de_mapa"] !== "") echo "class='footer_list_p'" . "data-lat='" . $li["latitud_de_mapa"] . "' data-lon='" . $li["longitud_de_mapa"] . "'" ?>>
+                ?>
+
+              <p class="<?= $className ?>" <?= $attrsNew ?>>
                 <?php
+                  $isWhatsapp = false;
+                  if (strtolower(str_replace(" ", "", $li["titulo_de_contacto"])) == "whatsapp") {
+                    $isWhatsapp = true;
+                  }
+                  ?>
+
+                <?php
+                  echo $isWhatsapp ? "<a class='footer_list_link whatsapp_link' target='blank'>" : "";
+
                   $textCon = $li["texto_de_contacto"];
                   $textArr = explode("|", $textCon);
                   foreach ($textArr as $key => $value) {
                     if ($key !== 0) {
                       echo "<br>";
                     }
+
                     echo $value;
                   }
+
+                  echo $isWhatsapp ? " </a>" : "";
+
                   ?>
               </p>
             </li>
@@ -82,29 +105,17 @@
 </footer>
 </div>
 <!-- Modal login window-->
-<div class="modal fade" id="modalLogin" role="dialog">
+<div class="modal fade" id="modal_link_broke" role="dialog">
   <div class="modal-dialog modal-dialog_custom">
     <!-- Modal content-->
     <div class="modal-dialog__inner">
-      <button class="close" type="button" data-dismiss="modal"></button>
+      <button class="close" type="button"></button>
       <div class="modal-dialog__content">
-        <h5>Login Form</h5>
+        <h5>Link deshabilitado</h5>
         <!-- RD Mailform-->
-        <form class="rd-mailform rd-mailform_responsive">
-          <div class="form-wrap form-wrap_icon linear-icon-envelope">
-            <input class="form-input" id="modal-login-email" type="email" name="email" data-constraints="@Email @Required">
-            <label class="form-label" for="modal-login-email">Your e-mail</label>
-          </div>
-          <div class="form-wrap form-wrap_icon linear-icon-lock">
-            <input class="form-input" id="modal-login-password" type="password" name="password" data-constraints="@Required">
-            <label class="form-label" for="modal-login-password">Your password</label>
-          </div>
-          <button class="button button-primary" type="submit">Login</button>
-        </form>
-        <ul class="list-small">
-          <li><a href="#">Forgot your username?</a></li>
-          <li><a href="#">Forgot your password?</a></li>
-        </ul>
+        <p>Actualmente estamos haciendo unas moficicaciones a este link, pronto estará disponible</p>
+        <button class="btn btn-primary web-btn">Aceptar</button>
+
       </div>
     </div>
   </div>

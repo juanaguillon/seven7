@@ -21,29 +21,28 @@ function sendWhatsappMessage() {
   var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
     navigator.userAgent
   );
-  var tagHrf = document.getElementById("whatsapp_link");
-  if (tagHrf) {
+  var tagHrf = $(".whatsapp_link");
+  if (tagHrf.length) {
     if (isMobile) {
       var link =
         "whatsapp://send?phone=573505904528&text=Buen día, quiero saber más información";
-      tagHrf.href = link;
     } else {
       var link =
         "https:///api.whatsapp.com/send?phone=573505904528&text=Buen día, quiero saber más información";
-      tagHrf.href = link;
     }
+    tagHrf.attr("href", link);
   }
 }
 
-function changeFooterMap(){
-  $(".footer_list_p").click(function(){
-    if ( $(this).data("lat")){
+function changeFooterMap() {
+  $(".footer_list_p").click(function() {
+    if ($(this).data("lat")) {
       initMap({
         lat: $(this).data("lat"),
         lng: $(this).data("lon")
       });
     }
-  })
+  });
 }
 
 /**
@@ -60,13 +59,25 @@ function openModalSearch() {
         $("#modal_search").removeClass("show");
       }
     });
-    $("body").click(function(e) {
-      $("#modal_search").removeClass("show");
-    });
   });
 
   $(".modal_wrapper, #search_in_web, .search_in_web").click(function(e) {
     e.stopPropagation();
+  });
+}
+
+/**
+ * Cuando se dé click en distribuidores del header, se moestrara el modal con texto de "página deshabilidata."
+ *  */
+function openModalDisablePage() {
+  $("#show_distribuidores").click(function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    $("#modal_link_broke").addClass("show");
+  });
+  $("body").click(function(e) {
+    $(".modal").removeClass("show");
   });
 }
 
@@ -238,7 +249,7 @@ function removeFiltersActuals() {
         .closest("li")
         .data("category")
     );
-    window.location.href = pages.productos +  "?" + urlParams.toString();
+    window.location.href = pages.productos + "?" + urlParams.toString();
   });
 }
 
@@ -260,6 +271,7 @@ $window.on("load", function() {
   removeFiltersActuals();
   sendWhatsappMessage();
   openModalSearch();
+  openModalDisablePage();
   changeFooterMap();
   $(".show_when_load").addClass("showing");
   $(".hide_when_load").addClass("hiding");

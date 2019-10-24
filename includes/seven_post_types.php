@@ -92,7 +92,7 @@ function __seven_register_taxonomy($name, $is_male = true, $asTag = false, $othe
       'show_ui'               => true,
       'show_admin_column'     => true,
       'query_var'             => true,
-      'rewrite'               => array('slug' => strtolower( $theName ) ),
+      'rewrite'               => array('slug' => strtolower($theName)),
     );
   } else {
     $args = $otherArgs;
