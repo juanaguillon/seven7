@@ -180,7 +180,7 @@ function hone_shortcode()
               "posts_per_page" => -1,
               'orderby' => 'rand',
               'order'    => 'ASC',
-              
+
             ));
             ?>
           <ul class="list-nav isotope-filters isotope-filters-horizontal">
@@ -321,9 +321,20 @@ function hone_shortcode()
                 <label class="form-label" for="contact-phone">Teléfono</label>
               </div>
               <div class="form-wrap">
+                <input class="form-input" id="contact-ciudad" type="text" data-constraints="@Required">
+                <label class="form-label" for="contact-ciudad">Ciudad</label>
+              </div>
+              <div class="form-wrap">
+
+                <input class="form-input" id="contact-pais" type="text" data-constraints="@Required">
+                <label class="form-label" for="contact-ciudad">Pais</label>
+
+              </div>
+              <div class="form-wrap">
                 <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
                 <label class="form-label" for="contact-message">Mensaje</label>
               </div>
+
               <div class="terms_of_data">
                 <p class="contact_terms">
                   <?php the_field("texto_de_contacto", "option"); ?>
@@ -346,12 +357,12 @@ function hone_shortcode()
               <button id="send_form" class="button button-primary" type="submit">Enviar</button>
 
               <div id="contact_form_messaje_success">
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" id="contact_success_alert" role="alert">
                   Se ha enviado su mensaje correctamente.
                 </div>
               </div>
               <div id="contact_form_messaje_error">
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" id="contact_error_alert" role="alert">
                   Ha ocurrido un error, intente nuevamente mas tarde.
                 </div>
               </div>
@@ -362,113 +373,7 @@ function hone_shortcode()
     </div>
     <div class="object-wrap__body object-wrap__body-sizing-1 object-wrap__body-md-left bg-image" style="background-image: url(<?php the_field("imagen_de_contacto", "option") ?>)"></div>
   </section>
-  <!-- <section class="section-lg bg-default text-center">
-      
-  <div class="container">
-    <h2 class="heading-decorated">QUE DICEN DE NOSOTROS</h2>
-    <div class="row row-50">
-      <div class="col-lg-5">
-        <div class="row row-30">
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-1-126x102.png" alt="" width="126" height="102" /></a></figure>
-          </div>
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-2-134x102.png" alt="" width="134" height="102" /></a></figure>
-          </div>
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-3-132x102.png" alt="" width="132" height="102" /></a></figure>
-          </div>
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-4-126x102.png" alt="" width="126" height="102" /></a></figure>
-          </div>
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-5-138x102.png" alt="" width="138" height="102" /></a></figure>
-          </div>
-          <div class="col-sm-6">
-            <figure class="box-icon-image"><a href="#"><img src="<?php echo get_template_directory_uri() ?>/images/company-6-143x102.png" alt="" width="143" height="102" /></a></figure>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-7 text-left">
-       
-        <div class="owl-carousel" data-items="1" data-stage-padding="15" data-loop="true" data-margin="30" data-nav="true" data-autoplay="true">
-          <div class="item">
-           
-            <div class="quote-classic">
-              <div class="quote-classic__main">
-                <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
-                  <g>
-                    <path d="M12.129,0v1.723c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959              c0,0.445,0.07,0.773,0.211,0.984c0.093,0.141,0.199,0.211,0.316,0.211c0.117,0,0.293-0.082,0.527-0.246              c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.519,0.545,3.551,1.635c1.031,1.09,1.547,2.385,1.547,3.885              c0,1.57-0.592,2.953-1.775,4.148c-1.184,1.195-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              C0.715,19.441,0,17.274,0,14.555c0-3.164,0.972-6,2.918-8.508C4.863,3.539,7.933,1.524,12.129,0z M29.039,0v1.723              c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959c0,0.445,0.07,0.773,0.211,0.984              c0.094,0.141,0.199,0.211,0.316,0.211s0.293-0.082,0.527-0.246c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.52,0.545,3.551,1.635              s1.547,2.385,1.547,3.885c0,1.57-0.592,2.953-1.775,4.148s-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              s-2.145-3.785-2.145-6.504c0-3.164,0.973-6,2.918-8.508C21.773,3.539,24.844,1.524,29.039,0z">
-                    </path>
-                  </g>
-                </svg>
-                <div class="quote-classic__text">
-                  <p class="q">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime eos fugiat debitis odit ut perferendis consequatur eveniet, facere accusamus ratione. Libero qui aliquam vero unde!</p>
-                </div>
-              </div>
-              <div class="quote-classic__caption">
-                <div class="quote-classic__image quote-classic__caption-aside"><img src="<?php echo get_template_directory_uri() ?>/images/testimonials-1-120x120.jpg" alt="" width="120" height="120" />
-                </div>
-                <div class="quote-classic__caption-main">
-                  <p class="quote-classic__cite">Jane Smith</p>
-                  <p class="quote-classic__small">Customer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-         
-            <div class="quote-classic">
-              <div class="quote-classic__main">
-                <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
-                  <g>
-                    <path d="M12.129,0v1.723c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959              c0,0.445,0.07,0.773,0.211,0.984c0.093,0.141,0.199,0.211,0.316,0.211c0.117,0,0.293-0.082,0.527-0.246              c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.519,0.545,3.551,1.635c1.031,1.09,1.547,2.385,1.547,3.885              c0,1.57-0.592,2.953-1.775,4.148c-1.184,1.195-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              C0.715,19.441,0,17.274,0,14.555c0-3.164,0.972-6,2.918-8.508C4.863,3.539,7.933,1.524,12.129,0z M29.039,0v1.723              c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959c0,0.445,0.07,0.773,0.211,0.984              c0.094,0.141,0.199,0.211,0.316,0.211s0.293-0.082,0.527-0.246c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.52,0.545,3.551,1.635              s1.547,2.385,1.547,3.885c0,1.57-0.592,2.953-1.775,4.148s-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              s-2.145-3.785-2.145-6.504c0-3.164,0.973-6,2.918-8.508C21.773,3.539,24.844,1.524,29.039,0z">
-                    </path>
-                  </g>
-                </svg>
-                <div class="quote-classic__text">
-                  <p class="q">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloremque earum qui, minus ducimus exercitationem voluptatibus itaque quam fuga consequuntur, id ipsam voluptates inventore quis! Vero?</p>
-                </div>
-              </div>
-              <div class="quote-classic__caption">
-                <div class="quote-classic__image quote-classic__caption-aside"><img src="<?php echo get_template_directory_uri() ?>/images/testimonials-2-120x120.jpg" alt="" width="120" height="120" />
-                </div>
-                <div class="quote-classic__caption-main">
-                  <p class="quote-classic__cite">James Wilson</p>
-                  <p class="quote-classic__small">Customer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-          
-            <div class="quote-classic">
-              <div class="quote-classic__main">
-                <svg class="quote-classic__mark" version="1.1" baseprofile="tiny" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40.234px" height="33.484px" viewbox="0 0 30.234 23.484" xml:space="preserve">
-                  <g>
-                    <path d="M12.129,0v1.723c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959              c0,0.445,0.07,0.773,0.211,0.984c0.093,0.141,0.199,0.211,0.316,0.211c0.117,0,0.293-0.082,0.527-0.246              c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.519,0.545,3.551,1.635c1.031,1.09,1.547,2.385,1.547,3.885              c0,1.57-0.592,2.953-1.775,4.148c-1.184,1.195-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              C0.715,19.441,0,17.274,0,14.555c0-3.164,0.972-6,2.918-8.508C4.863,3.539,7.933,1.524,12.129,0z M29.039,0v1.723              c-2.438,0.891-4.348,2.291-5.73,4.201c-1.383,1.911-2.074,3.897-2.074,5.959c0,0.445,0.07,0.773,0.211,0.984              c0.094,0.141,0.199,0.211,0.316,0.211s0.293-0.082,0.527-0.246c0.75-0.539,1.699-0.809,2.848-0.809c1.336,0,2.52,0.545,3.551,1.635              s1.547,2.385,1.547,3.885c0,1.57-0.592,2.953-1.775,4.148s-2.619,1.793-4.307,1.793c-1.969,0-3.668-0.809-5.098-2.426              s-2.145-3.785-2.145-6.504c0-3.164,0.973-6,2.918-8.508C21.773,3.539,24.844,1.524,29.039,0z">
-                    </path>
-                  </g>
-                </svg>
-                <div class="quote-classic__text">
-                  <p class="q">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, culpa? Quo dolore cum magni facilis modi voluptates. Maiores natus excepturi, mollitia id inventore optio sed hic minima, aliquid perspiciatis numquam blanditiis, voluptatibus tempora officia repudiandae!</p>
-                </div>
-              </div>
-              <div class="quote-classic__caption">
-                <div class="quote-classic__image quote-classic__caption-aside"><img src="<?php echo get_template_directory_uri() ?>/images/testimonials-3-120x120.jpg" alt="" width="120" height="120" />
-                </div>
-                <div class="quote-classic__caption-main">
-                  <p class="quote-classic__cite">Samantha Lee</p>
-                  <p class="quote-classic__small">Customer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+
 <?php
   return ob_get_clean();
 } // End function 

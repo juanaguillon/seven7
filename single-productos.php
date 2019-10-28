@@ -1,7 +1,18 @@
-<?php get_header() ?>
-<?php
+<?php get_header();
 $current_object = get_queried_object();
+
 $terms = get_the_terms($current_object, array("category"));
+$isJean = false;
+foreach ($terms as $cat) {
+  if ($cat->slug == "jeans") {
+    $isJean = true;
+    break;
+  }
+}
+
+// Se mostrará la tabla de mediciones en el actual producto?
+$showTableMeditions = get_field("show_table_dimensions", $current_object) && $isJean;
+
 ?>
 
 
@@ -28,12 +39,12 @@ $terms = get_the_terms($current_object, array("category"));
     <?php
     $breadData = array(
       "Inicio" => home_url(),
-      "Productos" =>  get_permalink(9) ,
+      "Productos" =>  get_permalink(9),
       "Actual" => $current_object->post_title
     );
     seven_breadcrumb($breadData);
-     ?>
-    
+    ?>
+
     <div class="row">
 
       <div class="col-md-6">
@@ -100,6 +111,7 @@ $terms = get_the_terms($current_object, array("category"));
                 </span>
               </div>
 
+
             </div>
             <div class="single_product_colors col-md-6 p-0">
               <div class="d-flex">
@@ -122,7 +134,15 @@ $terms = get_the_terms($current_object, array("category"));
           <strong><span>Descripción</span></strong>
           <p class="m-0"><?php echo $current_object->post_excerpt ?></p>
         </div>
+        <?php
+        if ($showTableMeditions) : ?>
+          <div class="text-left">
+            <a id="show_medida_table" class="button web-btn">Ver tabla de medidas</a>
+          </div>
+
+        <?php endif; ?>
       </div>
+
 
     </div>
     <div class="relation_single_product">
@@ -152,5 +172,129 @@ $terms = get_the_terms($current_object, array("category"));
 
   </div>
 </section>
+
+<?php
+if ($showTableMeditions) : ?>
+
+  <?php
+    function setValueTable($pais, $index, $default)
+    {
+      global $current_object;
+      $val = get_field("tabla_de_medida", $current_object)[$index][$pais];
+      if ($val !== "") {
+        return $val;
+      }
+      return $default;
+    }
+    ?>
+
+  <div class="modal fade" id="medida_table_wrap" role="dialog">
+    <div class="modal-dialog modal-dialog_custom">
+      <!-- Modal content-->
+      <div class="modal-dialog__inner">
+        <button class="close" type="button"></button>
+        <div class="modal-dialog__content">
+          <h5>Tabla de medidas</h5>
+          <!-- RD Mailform-->
+          <table id="modal_table_dimension">
+
+            <tbody>
+              <tr>
+                <td class="tdcountry">COLOMBIA</td>
+                <td><?php echo setValueTable("colombia", 0, 6) ?></td>
+                <td><?php echo setValueTable("colombia", 1, 8) ?></td>
+                <td><?php echo setValueTable("colombia", 2, 10) ?></td>
+                <td><?php echo setValueTable("colombia", 3, 12) ?></td>
+                <td><?php echo setValueTable("colombia", 4, 14) ?></td>
+                <td><?php echo setValueTable("colombia", 5, 16) ?></td>
+                <td><?php echo setValueTable("colombia", 6, 18) ?></td>
+              </tr>
+              <tr>
+                <td class="tdcountry">PERÚ</td>
+                <td><?php echo setValueTable("peru", 0, 26) ?></td>
+                <td><?php echo setValueTable("peru", 1, 28) ?></td>
+                <td><?php echo setValueTable("peru", 2, 30) ?></td>
+                <td><?php echo setValueTable("peru", 3, 32) ?></td>
+                <td><?php echo setValueTable("peru", 4, 34) ?></td>
+                <td><?php echo setValueTable("peru", 5, 36) ?></td>
+                <td><?php echo setValueTable("peru", 6, 38) ?></td>
+              </tr>
+              <tr>
+                <td class="tdcountry">BOLIVIA</td>
+                <td><?php echo setValueTable("peru", 0, 26) ?></td>
+                <td><?php echo setValueTable("peru", 1, 28) ?></td>
+                <td><?php echo setValueTable("peru", 2, 30) ?></td>
+                <td><?php echo setValueTable("peru", 3, 32) ?></td>
+                <td><?php echo setValueTable("peru", 4, 34) ?></td>
+                <td><?php echo setValueTable("peru", 5, 36) ?></td>
+                <td><?php echo setValueTable("peru", 6, 38) ?></td>
+
+              </tr>
+              <tr>
+                <td class="tdcountry">USA</td>
+                <td><?php echo setValueTable("peru", 0, "0-2") ?></td>
+                <td><?php echo setValueTable("peru", 1, "3-4") ?></td>
+                <td><?php echo setValueTable("peru", 2, "5-6") ?></td>
+                <td><?php echo setValueTable("peru", 3, "7-8") ?></td>
+                <td><?php echo setValueTable("peru", 4, "9-10") ?></td>
+                <td><?php echo setValueTable("peru", 5, "11-12") ?></td>
+                <td><?php echo setValueTable("peru", 6, "13-14") ?></td>
+
+              </tr>
+              <tr>
+                <td class="tdcountry">EUROPA</td>
+                <td><?php echo setValueTable("peru", 0, 32) ?></td>
+                <td><?php echo setValueTable("peru", 1, 34) ?></td>
+                <td><?php echo setValueTable("peru", 2, 36) ?></td>
+                <td><?php echo setValueTable("peru", 3, 38) ?></td>
+                <td><?php echo setValueTable("peru", 4, 40) ?></td>
+                <td><?php echo setValueTable("peru", 5, 42) ?></td>
+                <td><?php echo setValueTable("peru", 6, 44) ?></td>
+
+              </tr>
+              <tr>
+                <td class="tdcountry">MÉXICO</td>
+                <td><?php echo setValueTable("peru", 0, "0-2") ?></td>
+                <td><?php echo setValueTable("peru", 1, "3-4") ?></td>
+                <td><?php echo setValueTable("peru", 2, "5-6") ?></td>
+                <td><?php echo setValueTable("peru", 3, "7-8") ?></td>
+                <td><?php echo setValueTable("peru", 4, "9-10") ?></td>
+                <td><?php echo setValueTable("peru", 5, "11-12") ?></td>
+                <td><?php echo setValueTable("peru", 6, "13-14") ?></td>
+
+              </tr>
+              <tr>
+                <td class="tdcountry">CHILE</td>
+                <td><?php echo setValueTable("peru", 0, 36) ?></td>
+                <td><?php echo setValueTable("peru", 1, 38) ?></td>
+                <td><?php echo setValueTable("peru", 2, 40) ?></td>
+                <td><?php echo setValueTable("peru", 3, 42) ?></td>
+                <td><?php echo setValueTable("peru", 4, 44) ?></td>
+                <td><?php echo setValueTable("peru", 5, 46) ?></td>
+                <td><?php echo setValueTable("peru", 6, 48) ?></td>
+              </tr>
+              <tr>
+                <td class="tdcountry">CADERA</td>
+                <td><?php echo setValueTable("peru", 0, "90-94") ?></td>
+                <td><?php echo setValueTable("peru", 1, "95-99") ?></td>
+                <td><?php echo setValueTable("peru", 2, "100-104") ?></td>
+                <td><?php echo setValueTable("peru", 3, "105-109") ?></td>
+                <td><?php echo setValueTable("peru", 4, "110-114") ?></td>
+                <td><?php echo setValueTable("peru", 5, "115-119") ?></td>
+                <td><?php echo setValueTable("peru", 6, "120-124") ?></td>
+
+              </tr>
+
+            </tbody>
+          </table>
+          <small>Las dimensiones de los jeans pueden variar debido a los distintos procesos o la tela. </small>
+          <button class="btn btn-primary web-btn">Cerrar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>
+
 
 <?php get_footer() ?>

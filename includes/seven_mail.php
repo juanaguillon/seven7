@@ -2,11 +2,20 @@
 
 
 
-
-
-function seven_send_mail($nombre, $email, $cedula, $phone ,$ciudad, $pais, $msj)
+function seven_send_mail($nombre, $email, $cedula, $phone, $ciudad, $pais, $msj)
 
 {
+
+  $arr = array(
+    $nombre, $email, $cedula, $phone, $ciudad, $pais, $msj
+  );
+
+  foreach ($arr as $val) {
+    if ( $val === ""){
+      echo "0";
+      return false;
+    }
+  }
 
   $imagen_respuesta = get_template_directory_uri() . "/images/logo_respuesta.png";
 
@@ -296,7 +305,7 @@ function seven_send_mail($nombre, $email, $cedula, $phone ,$ciudad, $pais, $msj)
 
   ob_clean();
 
-  $cabeceras = 'From: ' . get_field("email_desde", "option") .' <info@sevensiete.com>' . "\r\n";
+  $cabeceras = 'From: ' . get_field("email_desde", "option") . ' <info@sevensiete.com>' . "\r\n";
 
   $cabeceras .= 'Reply-To: ' . get_field("email_desde", "option") . ' <ventasseven7@hotmail.com>' . "\r\n";
 
@@ -312,7 +321,7 @@ function seven_send_mail($nombre, $email, $cedula, $phone ,$ciudad, $pais, $msj)
 
 
 
-  
+
 
 
 
@@ -326,20 +335,17 @@ function seven_send_mail($nombre, $email, $cedula, $phone ,$ciudad, $pais, $msj)
 
   // $sending = mail( "juanaguilloncar@gmail.com", $encoded_subject, $mensajePrincipal, $cabeceras);
 
-  $sending = mail( get_field("email_para", "option"), $encoded_subject, $mensajePrincipal, $cabeceras);
+  $sending = mail(get_field("email_para", "option"), $encoded_subject, $mensajePrincipal, $cabeceras);
 
   $sending2 = mail($email, $encoded_subject2, $mensajeSecundario, $cabeceras);
 
   if ($sending && $sending2) {
 
     return "1";
-
   } else {
 
     return "0";
-
   }
-
 }
 
 
@@ -367,15 +373,12 @@ function seven_mail_ajax()
   try {
 
     echo seven_send_mail($nombre, $email, $cedula, $telefono, $ciudad, $pais, $mensaje);
-
   } catch (\Throwable $th) {
 
     echo $th->getMessage();
-
   }
 
   die();
-
 }
 
 
@@ -383,4 +386,3 @@ function seven_mail_ajax()
 add_action("wp_ajax_seven_mail", "seven_mail_ajax");
 
 add_action("wp_ajax_nopriv_seven_mail", "seven_mail_ajax");
-

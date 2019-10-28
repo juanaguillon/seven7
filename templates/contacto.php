@@ -73,12 +73,12 @@
               </div>
 
               <div id="contact_form_messaje_success">
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" id="contact_success_alert" role="alert">
                   Se ha enviado su mensaje correctamente.
                 </div>
               </div>
               <div id="contact_form_messaje_error">
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-danger" id="contact_error_alert" role="alert">
                   Ha ocurrido un error, intente nuevamente mas tarde.
                 </div>
               </div>

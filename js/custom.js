@@ -128,28 +128,63 @@ function loadContactAjax() {
   $("#send_form").click(function(event) {
     event.preventDefault();
     $("#contact_form_loading").css("display", "block");
+    var nombre = $("#contact-name").val(),
+      email = $("#contact-email").val(),
+      cedula = $("#contact-cedula").val(),
+      phone = $("#contact-phone").val(),
+      message = $("#contact-message").val(),
+      ciudad = $("#contact-ciudad").val(),
+      pais = $("#contact-pais").val();
+
+    var allVals = new Array(
+      nombre,
+      email,
+      cedula,
+      phone,
+      message,
+      ciudad,
+      pais
+    );
+
+    for (var i = 0; i < allVals.length; i++) {
+      if (allVals[i] === "") {
+        $("#contact_form_loading").css("display", "none");
+        $("#contact_error_alert").text("Todos los campos son requeridos");
+        $("#contact_form_messaje_error").css("display", "block");
+        return false;
+      }
+    }
     $.ajax({
       url: ajaxURL,
       method: "POST",
       data: {
         action: "seven_mail",
-        form_nombre: $("#contact-name").val(),
-        form_email: $("#contact-email").val(),
-        form_cedula: $("#contact-cedula").val(),
-        form_telefono: $("#contact-phone").val(),
-        form_mensaje: $("#contact-message").val(),
-        form_ciudad: $("#contact-ciudad").val(),
-        form_pais: $("#contact-pais").val()
+        form_nombre: nombre,
+        form_email: email,
+        form_cedula: cedula,
+        form_telefono: phone,
+        form_mensaje: message,
+        form_ciudad: ciudad,
+        form_pais: pais
       },
       success: function(ev) {
+        alert("Se envió");
+        console.log(ev);
         $("#contact_form_loading").css("display", "none");
         if (ev == 1) {
+          $("#contact_form_messaje_error").css("display", "none");
           $("#contact_form_messaje_success").css("display", "block");
         } else {
+          $("#contact_error_alert").text(
+            " Ha ocurrido un error, intente nuevamente mas tarde."
+          );
           $("#contact_form_messaje_error").css("display", "block");
         }
       },
       error: function() {
+        $("#contact_error_alert").text(
+          " Ha ocurrido un error, intente nuevamente mas tarde."
+        );
         $("#contact_form_loading").css("display", "none");
         $("#contact_form_messaje_error").css("display", "block");
       }
@@ -261,6 +296,17 @@ function policySelectBehiavor() {
   });
 }
 
+/**
+ * Mostrar la tabla de dimensiones en la ficha de producto interna.
+ */
+function showTableDimensions() {
+  $("#show_medida_table").click(function(e) {
+    e.preventDefault();
+    e.stopPropagation()
+    $("#medida_table_wrap").addClass("show");
+  });
+}
+
 $window.on("load", function() {
   initiPlugins();
   makePaginatorAjax();
@@ -273,6 +319,7 @@ $window.on("load", function() {
   openModalSearch();
   openModalDisablePage();
   changeFooterMap();
+  showTableDimensions();
   $(".show_when_load").addClass("showing");
   $(".hide_when_load").addClass("hiding");
 });
